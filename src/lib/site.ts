@@ -61,6 +61,7 @@ export const heroSlides = [
 export const org = {
   name: "TRINETRA FOUNDATION",
   shortName: "Trinetra Foundation",
+  url: "https://trinetrafoundation.in",
   tagline: "Serving Humanity. Empowering Communities. Creating Sustainable Change.",
   cin: "U88900BR2026NPL084393",
   phone: "7562891937",

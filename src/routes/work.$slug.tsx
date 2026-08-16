@@ -18,8 +18,8 @@ export const Route = createFileRoute("/work/$slug")({
       return { meta: [{ title: "Programme not found — Trinetra Foundation" }, { name: "robots", content: "noindex" }] };
     }
     const title = `${loaderData.area.title} — Trinetra Foundation | Forbesganj, Bihar`;
-    const fullUrl = `https://trinetrafoundation.org/work/${params.slug}`;
-    const imageUrl = loaderData.area.image ? `https://trinetrafoundation.org${loaderData.area.image}` : "https://trinetrafoundation.org/trinetra-logo.png";
+    const fullUrl = `https://trinetrafoundation.in/work/${params.slug}`;
+    const imageUrl = loaderData.area.image ? `https://trinetrafoundation.in${loaderData.area.image}` : "https://trinetrafoundation.in/trinetra-logo.png";
     return {
       meta: [
         { title },
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/work/$slug")({
             name: loaderData.area.title,
             description: loaderData.area.description || loaderData.area.short,
             provider: {
-              "@id": "https://trinetrafoundation.org/#organization",
+              "@id": "https://trinetrafoundation.in/#organization",
             },
             areaServed: {
               "@type": "AdministrativeArea",

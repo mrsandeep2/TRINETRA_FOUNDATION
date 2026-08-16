@@ -20,13 +20,13 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Get in touch with the Trinetra Foundation team for programmes, donations, or volunteering.",
       },
-      { property: "og:url", content: "https://trinetrafoundation.org/contact" },
-      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:url", content: "https://trinetrafoundation.in/contact" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Contact Trinetra Foundation" },
       { name: "twitter:description", content: "Forbesganj, Araria, Bihar. Call +91 7562891937." },
     ],
-    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/contact" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.in/contact" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -34,9 +34,9 @@ export const Route = createFileRoute("/contact")({
           "@context": "https://schema.org",
           "@type": "ContactPage",
           name: "Contact Trinetra Foundation",
-          url: "https://trinetrafoundation.org/contact",
+          url: "https://trinetrafoundation.in/contact",
           mainEntity: {
-            "@id": "https://trinetrafoundation.org/#organization",
+            "@id": "https://trinetrafoundation.in/#organization",
           },
         }),
       },

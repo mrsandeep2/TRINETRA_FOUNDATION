@@ -38,5 +38,5 @@ Disallow: /admin
 Disallow: /auth
 
 # Host and Sitemap
-Host: https://trinetrafoundation.org
-Sitemap: https://trinetrafoundation.org/sitemap.xml
+Host: https://trinetrafoundation.in
+Sitemap: https://trinetrafoundation.in/sitemap.xml

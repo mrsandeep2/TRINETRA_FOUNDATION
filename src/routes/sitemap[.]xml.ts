@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { workAreas } from "@/lib/site";
 
-const BASE_URL = "https://trinetrafoundation.org";
+const BASE_URL = "https://trinetrafoundation.in";
 
 type Entry = { path: string; changefreq: string; priority: string; lastmod: string };
 

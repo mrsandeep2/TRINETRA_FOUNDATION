@@ -28,13 +28,13 @@ export const Route = createFileRoute("/donate")({
         property: "og:description",
         content: "Fund transparent community programmes in Bihar with instant digital tax receipts and ground audits.",
       },
-      { property: "og:url", content: "https://trinetrafoundation.org/donate" },
-      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:url", content: "https://trinetrafoundation.in/donate" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Donate to Trinetra Foundation" },
       { name: "twitter:description", content: "100% transparent donation with 80G tax benefit receipt." },
     ],
-    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/donate" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.in/donate" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -43,9 +43,9 @@ export const Route = createFileRoute("/donate")({
           "@type": "DonateAction",
           name: "Donate to Trinetra Foundation",
           recipient: {
-            "@id": "https://trinetrafoundation.org/#organization",
+            "@id": "https://trinetrafoundation.in/#organization",
           },
-          url: "https://trinetrafoundation.org/donate",
+          url: "https://trinetrafoundation.in/donate",
           description: "Online donation supporting education, health, and relief in Bihar with 80G certificate.",
         }),
       },

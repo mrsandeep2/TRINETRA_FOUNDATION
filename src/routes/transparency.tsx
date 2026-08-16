@@ -35,13 +35,13 @@ export const Route = createFileRoute("/transparency")({
         property: "og:description",
         content: "Verified registration certificate, Section 8 compliance, 80G certificate, and audited filings.",
       },
-      { property: "og:url", content: "https://trinetrafoundation.org/transparency" },
-      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:url", content: "https://trinetrafoundation.in/transparency" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Legal Disclosures & Audits — Trinetra Foundation" },
       { name: "twitter:description", content: "100% public accountability with verified government registrations." },
     ],
-    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/transparency" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.in/transparency" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -49,9 +49,9 @@ export const Route = createFileRoute("/transparency")({
           "@context": "https://schema.org",
           "@type": "AboutPage",
           name: "Trinetra Foundation Transparency & Legal Disclosures",
-          url: "https://trinetrafoundation.org/transparency",
+          url: "https://trinetrafoundation.in/transparency",
           mainEntity: {
-            "@id": "https://trinetrafoundation.org/#organization",
+            "@id": "https://trinetrafoundation.in/#organization",
           },
         }),
       },

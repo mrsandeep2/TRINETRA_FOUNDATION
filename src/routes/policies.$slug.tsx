@@ -52,9 +52,10 @@ export const Route = createFileRoute("/policies/$slug")({
         { name: "description", content: `${loaderData.policy.title} of Trinetra Foundation.` },
         { property: "og:title", content: title },
         { property: "og:description", content: `${loaderData.policy.title} of Trinetra Foundation.` },
-        { property: "og:url", content: `/policies/${params.slug}` },
+        { property: "og:url", content: `https://trinetrafoundation.in/policies/${params.slug}` },
+        { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       ],
-      links: [{ rel: "canonical", href: `/policies/${params.slug}` }],
+      links: [{ rel: "canonical", href: `https://trinetrafoundation.in/policies/${params.slug}` }],
     };
   },
   notFoundComponent: () => (

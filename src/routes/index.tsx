@@ -45,9 +45,10 @@ export const Route = createFileRoute("/")({
         content:
           "A Section 8 non-profit building sustainable change through education, health, livelihood and environmental work in Bihar.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://trinetrafoundation.in/" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.in/" }],
   }),
   component: HomePage,
 });

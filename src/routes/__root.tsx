@@ -84,8 +84,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Trinetra Foundation is a Section 8 non-profit organisation registered in Forbesganj, Bihar working across 12 welfare sectors with verified ground audits.",
       },
-      { property: "og:url", content: "https://trinetrafoundation.org/" },
-      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:url", content: "https://trinetrafoundation.in/" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { property: "og:image:alt", content: "Trinetra Foundation Official Emblem" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@TrinetraNGO" },
@@ -94,10 +94,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "twitter:description",
         content: "Registered Section 8 NGO in Bihar empowering lives through education, healthcare, nutrition & environmental action.",
       },
-      { name: "twitter:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [
-      { rel: "canonical", href: "https://trinetrafoundation.org/" },
+      { rel: "canonical", href: "https://trinetrafoundation.in/" },
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
       { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
@@ -121,12 +121,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "NGO",
-              "@id": "https://trinetrafoundation.org/#organization",
+              "@id": "https://trinetrafoundation.in/#organization",
               name: "Trinetra Foundation",
               alternateName: ["Trinetra NGO", "Trinetra Foundation Bihar"],
-              url: "https://trinetrafoundation.org",
-              logo: "https://trinetrafoundation.org/trinetra-logo.png",
-              image: "https://trinetrafoundation.org/trinetra-logo.png",
+              url: "https://trinetrafoundation.in",
+              logo: "https://trinetrafoundation.in/trinetra-logo.png",
+              image: "https://trinetrafoundation.in/trinetra-logo.png",
               description:
                 "Trinetra Foundation is a Section 8 non-profit company registered under the Companies Act, 2013 in Forbesganj, Araria, Bihar, dedicated to human, animal, and environmental welfare.",
               taxID: "U88900BR2026NPL084393",
@@ -169,11 +169,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             },
             {
               "@type": "WebSite",
-              "@id": "https://trinetrafoundation.org/#website",
-              url: "https://trinetrafoundation.org",
+              "@id": "https://trinetrafoundation.in/#website",
+              url: "https://trinetrafoundation.in",
               name: "Trinetra Foundation",
               publisher: {
-                "@id": "https://trinetrafoundation.org/#organization",
+                "@id": "https://trinetrafoundation.in/#organization",
               },
               inLanguage: "en-IN",
             },

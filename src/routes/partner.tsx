@@ -19,13 +19,13 @@ export const Route = createFileRoute("/partner")({
         property: "og:description",
         content: "Collaborate on high-impact CSR education, health, and environmental programmes in Bihar.",
       },
-      { property: "og:url", content: "https://trinetrafoundation.org/partner" },
-      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:url", content: "https://trinetrafoundation.in/partner" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Partner With Trinetra Foundation" },
       { name: "twitter:description", content: "CSR and institutional partnerships for sustainable development in Bihar." },
     ],
-    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/partner" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.in/partner" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -33,9 +33,9 @@ export const Route = createFileRoute("/partner")({
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "CSR & Institutional Partnerships",
-          url: "https://trinetrafoundation.org/partner",
+          url: "https://trinetrafoundation.in/partner",
           publisher: {
-            "@id": "https://trinetrafoundation.org/#organization",
+            "@id": "https://trinetrafoundation.in/#organization",
           },
         }),
       },

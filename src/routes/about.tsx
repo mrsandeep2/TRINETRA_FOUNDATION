@@ -17,13 +17,13 @@ export const Route = createFileRoute("/about")({
         property: "og:description",
         content: "Our mission, vision, values, leadership, and governance as a registered Section 8 non-profit in Bihar.",
       },
-      { property: "og:url", content: "https://trinetrafoundation.org/about" },
-      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:url", content: "https://trinetrafoundation.in/about" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "About Us — Trinetra Foundation" },
       { name: "twitter:description", content: "Our mission, vision, values and governance in Forbesganj, Bihar." },
     ],
-    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/about" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.in/about" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -31,9 +31,9 @@ export const Route = createFileRoute("/about")({
           "@context": "https://schema.org",
           "@type": "AboutPage",
           name: "About Trinetra Foundation",
-          url: "https://trinetrafoundation.org/about",
+          url: "https://trinetrafoundation.in/about",
           mainEntity: {
-            "@id": "https://trinetrafoundation.org/#organization",
+            "@id": "https://trinetrafoundation.in/#organization",
           },
         }),
       },

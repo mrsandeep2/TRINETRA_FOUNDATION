@@ -20,13 +20,13 @@ export const Route = createFileRoute("/work/")({
         property: "og:description",
         content: "Verified social impact across education, healthcare, nutrition, and sustainability in Bihar.",
       },
-      { property: "og:url", content: "https://trinetrafoundation.org/work" },
-      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:url", content: "https://trinetrafoundation.in/work" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "12 Welfare Programmes — Trinetra Foundation" },
       { name: "twitter:description", content: "Grassroots impact across 12 sectors in Forbesganj & Araria district." },
     ],
-    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/work" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.in/work" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -34,9 +34,9 @@ export const Route = createFileRoute("/work/")({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Our 12 Welfare Programmes",
-          url: "https://trinetrafoundation.org/work",
+          url: "https://trinetrafoundation.in/work",
           publisher: {
-            "@id": "https://trinetrafoundation.org/#organization",
+            "@id": "https://trinetrafoundation.in/#organization",
           },
         }),
       },

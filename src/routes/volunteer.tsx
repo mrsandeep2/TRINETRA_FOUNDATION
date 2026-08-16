@@ -19,13 +19,13 @@ export const Route = createFileRoute("/volunteer")({
         property: "og:description",
         content: "Give your time, energy, and skills to grassroots empowerment in Forbesganj & Araria.",
       },
-      { property: "og:url", content: "https://trinetrafoundation.org/volunteer" },
-      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:url", content: "https://trinetrafoundation.in/volunteer" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Volunteer With Trinetra Foundation" },
       { name: "twitter:description", content: "Make a direct grassroots impact in Bihar." },
     ],
-    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/volunteer" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.in/volunteer" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -33,9 +33,9 @@ export const Route = createFileRoute("/volunteer")({
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: "Volunteer with Trinetra Foundation",
-          url: "https://trinetrafoundation.org/volunteer",
+          url: "https://trinetrafoundation.in/volunteer",
           publisher: {
-            "@id": "https://trinetrafoundation.org/#organization",
+            "@id": "https://trinetrafoundation.in/#organization",
           },
         }),
       },

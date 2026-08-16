@@ -36,13 +36,13 @@ export const Route = createFileRoute("/events")({
         property: "og:description",
         content: "Participate, volunteer or RSVP for upcoming grassroots community drives in Bihar.",
       },
-      { property: "og:url", content: "https://trinetrafoundation.org/events" },
-      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:url", content: "https://trinetrafoundation.in/events" },
+      { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Events & On-Ground Camps — Trinetra Foundation" },
       { name: "twitter:description", content: "Join free medical camps, student workshops and community drives in Bihar." },
     ],
-    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/events" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.in/events" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -50,9 +50,9 @@ export const Route = createFileRoute("/events")({
           "@context": "https://schema.org",
           "@type": "EventSeries",
           name: "Trinetra Foundation Community Camps & Drives",
-          url: "https://trinetrafoundation.org/events",
+          url: "https://trinetrafoundation.in/events",
           organizer: {
-            "@id": "https://trinetrafoundation.org/#organization",
+            "@id": "https://trinetrafoundation.in/#organization",
           },
           location: {
             "@type": "Place",
