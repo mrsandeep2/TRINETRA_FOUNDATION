@@ -1,6 +1,4 @@
 # Trinetra Foundation Redirects Configuration
-# 301 Redirect secondary domain (.site) and legacy domain (.org) to primary canonical domain (.in)
+# 301 Redirect secondary domain (.site) to primary canonical domain (.in)
 https://trinetrafoundation.site/* https://trinetrafoundation.in/:splat 301!
 http://trinetrafoundation.site/* https://trinetrafoundation.in/:splat 301!
-https://trinetrafoundation.org/* https://trinetrafoundation.in/:splat 301!
-http://trinetrafoundation.org/* https://trinetrafoundation.in/:splat 301!
