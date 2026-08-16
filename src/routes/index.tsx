@@ -59,14 +59,15 @@ function HomePage() {
       <div className="relative z-10 bg-background">
         <Marquee
           items={[
-            "Food & Nutrition",
-            "Education & Literacy",
-            "Healthcare & Diagnostics",
-            "Livelihood & Skills",
-            "Afforestation & Environment",
-            "Gaushala & Animal Welfare",
-            "Disaster Relief",
-            "Human Rights & Inclusion",
+            { text: "Love & Humanitarian Care", emoji: "❤️", badge: "Core", color: "from-rose-500/15 to-pink-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20" },
+            { text: "Food & Nutrition", emoji: "🍲", badge: "Relief", color: "from-orange-500/15 to-amber-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20" },
+            { text: "Education & STEM", emoji: "🎓", badge: "Future", color: "from-blue-500/15 to-indigo-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20" },
+            { text: "Healthcare & Diagnostics", emoji: "🩺", badge: "Health", color: "from-emerald-500/15 to-teal-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20" },
+            { text: "Helping Hand & Inclusion", emoji: "🤝", badge: "Grassroots", color: "from-amber-500/15 to-yellow-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20" },
+            { text: "Gaushala & Animal Welfare", emoji: "🐮", badge: "Compassion", color: "from-amber-600/15 to-orange-500/10 text-amber-700 dark:text-amber-400 border-amber-600/20" },
+            { text: "Afforestation & Ecology", emoji: "🌲", badge: "Ecology", color: "from-green-500/15 to-emerald-500/10 text-green-600 dark:text-green-400 border-green-500/20" },
+            { text: "Livelihood & Skills", emoji: "💼", badge: "Dignity", color: "from-purple-500/15 to-violet-500/10 text-purple-600 dark:text-purple-400 border-purple-500/20" },
+            { text: "Emergency Relief", emoji: "🚨", badge: "Action", color: "from-red-500/15 to-rose-500/10 text-red-600 dark:text-red-400 border-red-500/20" },
           ]}
         />
         <WorkMarquee />

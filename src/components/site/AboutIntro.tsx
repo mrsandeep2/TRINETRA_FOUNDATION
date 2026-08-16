@@ -86,7 +86,7 @@ export function AboutIntro() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#fdfbf7] via-[#f8f3ec] to-[#f4ece0] dark:from-[#090e1c] dark:via-[#0c1424] dark:to-[#070b16] py-20 sm:py-28">
+    <section className="relative z-10 overflow-hidden bg-gradient-to-b from-[#fdfbf7] via-[#f8f3ec] to-[#f4ece0] dark:from-[#090e1c] dark:via-[#0c1424] dark:to-[#070b16] py-14 sm:py-20 lg:py-28">
       {/* Dynamic Ambient Background Glow Mesh */}
       <div
         className={cn(
