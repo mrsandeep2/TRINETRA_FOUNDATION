@@ -218,7 +218,7 @@ export function HeroSplit() {
   const drawOffset = 1000 - (progress / 100) * 1000;
 
   return (
-    <section className="relative w-full max-w-full overflow-x-clip flex flex-col justify-start lg:justify-between pt-20 sm:pt-24 lg:pt-24 xl:pt-28 pb-8 sm:pb-12 lg:pb-3 xl:pb-4 lg:h-[100svh] lg:min-h-[640px] lg:max-h-[100svh] bg-gradient-to-b from-[#fdfbf7] via-[#f8f3ec] to-[#f4ece0] dark:from-[#070c18] dark:via-[#0b1222] dark:to-[#060a14]">
+    <section className="relative w-full max-w-full overflow-x-clip flex flex-col justify-start lg:justify-between pt-24 sm:pt-28 lg:pt-24 xl:pt-28 pb-8 sm:pb-12 lg:pb-3 xl:pb-4 lg:h-[100svh] lg:min-h-[640px] lg:max-h-[100svh] bg-gradient-to-b from-[#fdfbf7] via-[#f8f3ec] to-[#f4ece0] dark:from-[#070c18] dark:via-[#0b1222] dark:to-[#060a14]">
       {/* Ambient Glowing Energy Mesh */}
       <div className="pointer-events-none absolute -top-32 -left-32 h-[34rem] w-[34rem] rounded-full bg-primary/20 blur-[130px] animate-[pulse_8s_ease-in-out_infinite]" />
       <div className="pointer-events-none absolute top-1/4 -right-32 h-[30rem] w-[30rem] rounded-full bg-amber-500/15 blur-[120px] animate-[pulse_10s_ease-in-out_infinite]" />
@@ -317,9 +317,9 @@ export function HeroSplit() {
             </div>
 
             {/* 2035 HORIZONTAL COMMAND CONSOLE */}
-            <div className="mt-2.5 sm:mt-3.5 rounded-3xl border border-white/80 dark:border-white/10 bg-white/80 dark:bg-white/5 p-3 sm:p-4 lg:p-4.5 shadow-[0_20px_50px_-20px_rgba(20,28,50,0.15)] backdrop-blur-2xl">
+            <div className="mt-2.5 sm:mt-3.5 rounded-3xl border border-white/80 dark:border-white/10 bg-white/80 dark:bg-white/5 p-3.5 sm:p-4 lg:p-4.5 shadow-[0_20px_50px_-20px_rgba(20,28,50,0.15)] backdrop-blur-2xl">
               {/* Preset Matrix Header */}
-              <div className="flex items-center justify-between mb-1.5 sm:mb-2.5">
+              <div className="flex items-center justify-between mb-2 sm:mb-2.5">
                 <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-navy dark:text-white flex items-center gap-1.5">
                   <Zap className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-primary" /> Instant Support Console
                 </span>
@@ -329,7 +329,7 @@ export function HeroSplit() {
               </div>
 
               {/* 4 Instant Amount Chips */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {donationChips.map((chip) => {
                   const isChosen = selectedAmount === chip.amount;
                   return (
@@ -338,7 +338,7 @@ export function HeroSplit() {
                       type="button"
                       onClick={() => setSelectedAmount(chip.amount)}
                       className={cn(
-                        "flex flex-col items-center justify-center rounded-2xl py-1.5 sm:py-2 px-2 sm:px-2.5 transition-all duration-200 cursor-pointer select-none",
+                        "flex flex-col items-center justify-center rounded-2xl py-2 px-2 sm:px-2.5 transition-all duration-200 cursor-pointer select-none",
                         isChosen
                           ? "bg-gradient-to-br from-primary to-[#d97706] text-white shadow-lg shadow-primary/30 scale-102 sm:scale-105"
                           : "bg-accent/50 dark:bg-white/5 text-navy dark:text-white hover:bg-accent hover:scale-102 border border-border/60",
@@ -361,12 +361,12 @@ export function HeroSplit() {
               </div>
 
               {/* Unified Action Dock */}
-              <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-center gap-2 sm:gap-2.5">
+              <div className="mt-3 sm:mt-3.5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5">
                 {/* Donate CTA with Selected Amount */}
                 <Link
                   to="/donate"
                   search={{ amount: selectedAmount }}
-                  className="group flex-1 min-w-[130px] sm:min-w-[150px] inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary via-[#ea580c] to-[#d97706] px-4 sm:px-5 py-2.5 sm:py-3 text-xs font-bold tracking-[0.12em] text-white uppercase shadow-[0_10px_24px_-4px_rgba(234,88,12,0.45)] transition-all duration-300 hover:scale-105 active:scale-95"
+                  className="group w-full sm:flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary via-[#ea580c] to-[#d97706] px-4 sm:px-5 py-2.5 sm:py-3 text-xs font-bold tracking-[0.12em] text-white uppercase shadow-[0_10px_24px_-4px_rgba(234,88,12,0.45)] transition-all duration-300 hover:scale-105 active:scale-95"
                 >
                   <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-white transition-transform group-hover:scale-125" />
                   <span>Donate ₹{selectedAmount.toLocaleString("en-IN")}</span>
@@ -376,7 +376,7 @@ export function HeroSplit() {
                 {/* Volunteer Action */}
                 <Link
                   to="/volunteer"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-navy/30 dark:border-white/20 bg-white/70 dark:bg-white/5 px-3.5 sm:px-4.5 py-2.5 sm:py-3 text-xs font-bold tracking-[0.1em] text-navy dark:text-white uppercase transition-all duration-200 hover:bg-navy hover:text-white hover:border-navy"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 rounded-full border border-navy/30 dark:border-white/20 bg-white/70 dark:bg-white/5 px-4 sm:px-4.5 py-2.5 sm:py-3 text-xs font-bold tracking-[0.1em] text-navy dark:text-white uppercase transition-all duration-200 hover:bg-navy hover:text-white hover:border-navy"
                 >
                   Volunteer
                 </Link>
@@ -606,17 +606,18 @@ export function HeroSplit() {
                 </div>
 
                 {/* FLOATING TOP-LEFT VERIFIED BADGE */}
-                <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5 rounded-full border border-white/50 bg-white/90 dark:bg-[#0c1424]/90 px-3.5 py-1.5 shadow-lg backdrop-blur-xl animate-[float-subtle_4s_ease-in-out_infinite] z-20">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                  <span className="font-display text-xs font-bold text-navy dark:text-white">
-                    Verified Grassroots
+                <div className="absolute top-2.5 sm:top-3.5 left-2.5 sm:left-3.5 flex items-center gap-1 sm:gap-1.5 rounded-full border border-white/50 bg-white/90 dark:bg-[#0c1424]/90 px-2.5 sm:px-3.5 py-1 sm:py-1.5 shadow-lg backdrop-blur-xl animate-[float-subtle_4s_ease-in-out_infinite] z-20">
+                  <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-500" />
+                  <span className="font-display text-[10px] sm:text-xs font-bold text-navy dark:text-white">
+                    <span className="sm:hidden">Verified</span>
+                    <span className="hidden sm:inline">Verified Grassroots</span>
                   </span>
                 </div>
 
                 {/* FLOATING TOP-RIGHT PROGRAMME PILL */}
-                <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/95 px-3.5 py-1.5 text-white shadow-lg backdrop-blur-xl z-20">
-                  <TrendingUp className="h-3.5 w-3.5" />
-                  <span className="text-xs font-bold">{activePillar.stat}</span>
+                <div className="absolute top-2.5 sm:top-3.5 right-2.5 sm:right-3.5 flex items-center gap-1 sm:gap-1.5 rounded-full border border-primary/30 bg-primary/95 px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-white shadow-lg backdrop-blur-xl z-20">
+                  <TrendingUp className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                  <span className="text-[10px] sm:text-xs font-bold">{activePillar.stat}</span>
                 </div>
 
                 {/* FLOATING BOTTOM SPOTLIGHT CARD */}
