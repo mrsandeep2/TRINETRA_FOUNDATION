@@ -28,6 +28,8 @@ export const Route = createFileRoute("/impact")({
         content:
           "Live impact metrics, audited beneficiary numbers, and real-time field reports across healthcare, food distribution, and education in Forbesganj & Araria.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: "Impact & Ground Telemetry — Trinetra Foundation" },
       {
         property: "og:description",

@@ -31,6 +31,8 @@ export const Route = createFileRoute("/events")({
         content:
           "Join or RSVP for upcoming healthcare camps, blood donation drives, tree plantations, and career counselling sessions organized by Trinetra Foundation across Bihar.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: "Upcoming Events & Community Camps — Trinetra Foundation" },
       {
         property: "og:description",

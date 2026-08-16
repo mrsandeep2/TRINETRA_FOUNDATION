@@ -14,6 +14,8 @@ export const Route = createFileRoute("/partner")({
         content:
           "Partner with Trinetra Foundation for Corporate Social Responsibility (CSR) projects, academic collaborations, healthcare partnerships, and community interventions in Bihar.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: "CSR & Institutional Partnerships — Trinetra Foundation" },
       {
         property: "og:description",

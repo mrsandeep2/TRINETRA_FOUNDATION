@@ -24,6 +24,8 @@ export const Route = createFileRoute("/work/$slug")({
       meta: [
         { title },
         { name: "description", content: loaderData.area.description || loaderData.area.short },
+        { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+        { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
         { property: "og:title", content: title },
         { property: "og:description", content: loaderData.area.description || loaderData.area.short },
         { property: "og:url", content: fullUrl },

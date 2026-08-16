@@ -15,6 +15,8 @@ export const Route = createFileRoute("/contact")({
         content:
           "Reach Trinetra Foundation head office in Forbesganj, Araria, Bihar. Phone: +91 7562891937, Email: trinetrafoundationofficially@gmail.com. Inquire for donations, CSR, or volunteering.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: "Contact Us — Trinetra Foundation | Bihar Office" },
       {
         property: "og:description",

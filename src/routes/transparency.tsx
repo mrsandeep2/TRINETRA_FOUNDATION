@@ -30,6 +30,8 @@ export const Route = createFileRoute("/transparency")({
         content:
           "Public disclosures, Section 8 registration certificate, CIN U88900BR2026NPL084393, 80G tax exemption, 12A approvals, and financial audits for Trinetra Foundation.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: "Transparency & Legal Governance — Trinetra Foundation" },
       {
         property: "og:description",

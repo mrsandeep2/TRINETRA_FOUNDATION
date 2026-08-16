@@ -23,6 +23,8 @@ export const Route = createFileRoute("/donate")({
         content:
           "Make a tax-deductible donation to Trinetra Foundation. Support food relief, STEM education, free health camps, and gaushala animal care in Bihar with 80G receipts.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: "Donate Online — Trinetra Foundation | 80G Certified" },
       {
         property: "og:description",

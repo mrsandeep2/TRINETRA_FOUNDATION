@@ -14,6 +14,8 @@ export const Route = createFileRoute("/volunteer")({
         content:
           "Join Trinetra Foundation as an on-ground or remote volunteer. Contribute your skills to food relief, teaching children, healthcare drives, tree plantations, and animal rescue in Bihar.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: "Volunteer With Us — Trinetra Foundation" },
       {
         property: "og:description",

@@ -12,6 +12,8 @@ export const Route = createFileRoute("/about")({
         content:
           "Learn about Trinetra Foundation, a registered Section 8 NGO founded by Er. Abhishek Kumar Singh & Er. Abhinash Sahu in Forbesganj, Bihar working for education, health, and welfare.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: "About Us — Trinetra Foundation | Leadership & Governance" },
       {
         property: "og:description",

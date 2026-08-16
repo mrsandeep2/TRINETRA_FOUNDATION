@@ -50,6 +50,8 @@ export const Route = createFileRoute("/policies/$slug")({
       meta: [
         { title },
         { name: "description", content: `${loaderData.policy.title} of Trinetra Foundation.` },
+        { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+        { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
         { property: "og:title", content: title },
         { property: "og:description", content: `${loaderData.policy.title} of Trinetra Foundation.` },
         { property: "og:url", content: `https://trinetrafoundation.in/policies/${params.slug}` },

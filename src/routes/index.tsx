@@ -39,6 +39,8 @@ export const Route = createFileRoute("/")({
         content:
           "Trinetra Foundation works across education, food, healthcare, livelihood, environment and animal welfare from Forbesganj, Araria, Bihar. Volunteer, partner or donate.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:title", content: "Trinetra Foundation — Serving Humanity, Empowering Communities" },
       {
         property: "og:description",
