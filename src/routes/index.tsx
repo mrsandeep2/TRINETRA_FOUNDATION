@@ -10,15 +10,24 @@ import {
   Users,
   Heart,
   Globe2,
+  UtensilsCrossed,
+  GraduationCap,
+  Stethoscope,
+  Trees,
+  Activity,
+  Zap,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { HeroSplit } from "@/components/site/HeroSplit";
 import { AboutIntro } from "@/components/site/AboutIntro";
 import { WorkMarquee } from "@/components/site/WorkMarquee";
+import { HelpAndDonateSection } from "@/components/site/HelpAndDonateSection";
+import { OurTeamSection } from "@/components/site/OurTeamSection";
 import { Marquee } from "@/components/site/ScrollEffects";
 import { Counter } from "@/components/site/Counter";
-import { eventsQuery, metricsQuery } from "@/lib/queries";
+import { metricsQuery } from "@/lib/queries";
 import { images, values } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,8 +70,9 @@ function HomePage() {
           ]}
         />
         <WorkMarquee />
-        <LiveDrivesHomeSection />
+        <HelpAndDonateSection />
         <DynamicImpactBarSection />
+        <OurTeamSection />
         <div className="defer-paint">
           <ValuesSection />
           <JoinSection />
@@ -72,158 +82,109 @@ function HomePage() {
   );
 }
 
-// Dynamic Upcoming Drives & Events on the Home page
-function LiveDrivesHomeSection() {
-  const { data: dbEvents } = useQuery(eventsQuery);
-
-  const defaultFeaturedDrives = [
-    {
-      id: "f1",
-      title: "Rural Health Checkup & Diagnostics Camp",
-      category: "Healthcare",
-      starts_at: new Date(Date.now() + 86400000 * 4).toISOString(),
-      location: "Forbesganj Community Centre, Araria",
-      desc: "Free specialist checkups, sugar & BP testing, and essential medicine aid.",
-    },
-    {
-      id: "f2",
-      title: "Monsoon Afforestation & Native Tree Drive",
-      category: "Environment",
-      starts_at: new Date(Date.now() + 86400000 * 10).toISOString(),
-      location: "Kosi Belt, Northern Bihar",
-      desc: "Planting 500+ Neem, Peepal, and Fruit saplings with local student volunteers.",
-    },
-    {
-      id: "f3",
-      title: "Student STEM Learning & Book Distribution",
-      category: "Education",
-      starts_at: new Date(Date.now() + 86400000 * 16).toISOString(),
-      location: "Trinetra Youth Centre",
-      desc: "Digital learning modules and free study kits for rural high-school students.",
-    },
-  ];
-
-  const featuredList = (dbEvents && dbEvents.length > 0 ? dbEvents : defaultFeaturedDrives).slice(0, 3);
-
-  return (
-    <section className="bg-secondary/15 py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary border border-primary/20">
-                <CalendarDays className="h-3.5 w-3.5" /> Upcoming Action
-              </span>
-              <span className="text-xs font-semibold text-muted-foreground">Open to All</span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy">
-              Ground Drives & Events
-            </h2>
-          </div>
-
-          <Link
-            to="/events"
-            className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-white dark:bg-white/5 px-5 py-2.5 text-xs font-bold text-primary uppercase shadow-sm hover:bg-primary hover:text-white transition-all"
-          >
-            <span>View All Camps & Drives</span>
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-3">
-          {featuredList.map((ev: any, i: number) => {
-            const date = new Date(ev.starts_at);
-            return (
-              <Reveal key={ev.id} delay={0.05 * i}>
-                <div className="group rounded-[2rem] bg-card border border-border/60 p-6 shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-primary/40 flex flex-col justify-between h-full">
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold text-primary uppercase tracking-wider">
-                        {ev.category || "Field Drive"}
-                      </span>
-                      <span className="text-[11px] font-mono font-semibold text-muted-foreground">
-                        {date.toLocaleDateString("en-IN", { month: "short", day: "numeric" })}
-                      </span>
-                    </div>
-
-                    <h3 className="font-display text-lg font-bold text-navy group-hover:text-primary transition-colors">
-                      {ev.title}
-                    </h3>
-                    <p className="mt-2 text-xs sm:text-sm text-muted-foreground line-clamp-2 leading-relaxed">
-                      {ev.desc || ev.description}
-                    </p>
-
-                    {ev.location && (
-                      <p className="mt-3 inline-flex items-center gap-1.5 text-[11px] text-navy/80 bg-secondary/30 px-2.5 py-1 rounded-full">
-                        <MapPin className="h-3 w-3 text-primary shrink-0" />
-                        <span className="truncate">{ev.location}</span>
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
-                    <Link
-                      to="/events"
-                      className="text-xs font-bold text-primary uppercase flex items-center gap-1 hover:underline"
-                    >
-                      <span>RSVP Details</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                    <span className="flex items-center gap-1 text-[10px] font-semibold text-emerald-600">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" /> Live Drive
-                    </span>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Dynamic Live Impact Numbers connected to database
+// Decorated 2035 Live Ground Telemetry & Impact Strip
 function DynamicImpactBarSection() {
   const { data: dbMetrics } = useQuery(metricsQuery);
 
   const fallbackMetrics = [
-    { label: "Students Supported", value: 850, unit: "Learners" },
-    { label: "Meals & Food Kits", value: 12500, unit: "Served" },
-    { label: "Medical Diagnostics", value: 3400, unit: "Patients" },
-    { label: "Trees Planted", value: 2200, unit: "Saplings" },
+    { label: "Meals & Food Kits", value: 25000, unit: "meals", sub: "Meals target for 2026", icon: UtensilsCrossed, glow: "from-amber-500 to-orange-600" },
+    { label: "Students Supported", value: 500, unit: "students", sub: "Students to support", icon: GraduationCap, glow: "from-blue-500 to-cyan-500" },
+    { label: "Health Camp Care", value: 2000, unit: "people", sub: "Health camp beneficiaries", icon: Stethoscope, glow: "from-emerald-500 to-teal-500" },
+    { label: "Native Trees Planted", value: 10000, unit: "saplings", sub: "Trees to plant", icon: Trees, glow: "from-green-500 to-emerald-600" },
   ];
 
-  const displayMetrics = (dbMetrics && dbMetrics.length > 0 ? dbMetrics : fallbackMetrics).slice(0, 4);
+  const metricIcons = [UtensilsCrossed, GraduationCap, Stethoscope, Trees];
+  const metricGlows = [
+    "from-amber-500 to-orange-600",
+    "from-blue-500 to-cyan-500",
+    "from-emerald-500 to-teal-500",
+    "from-green-500 to-emerald-600",
+  ];
+
+  const displayMetrics = (dbMetrics && dbMetrics.length > 0 ? dbMetrics : fallbackMetrics).slice(0, 4).map((m: any, idx: number) => ({
+    label: m.label,
+    value: m.value,
+    unit: m.unit || fallbackMetrics[idx]?.unit || "",
+    sub: m.sub || fallbackMetrics[idx]?.sub || m.label,
+    icon: metricIcons[idx] || Zap,
+    glow: metricGlows[idx] || "from-amber-500 to-orange-600",
+  }));
 
   return (
-    <section className="border-y border-border/60 bg-gradient-to-r from-navy via-[#101a35] to-[#0c1424] py-14 text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
-          <div className="flex items-center gap-2">
-            <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-ping" />
-            <span className="text-xs font-bold tracking-widest text-amber-400 uppercase">
+    <section className="relative overflow-hidden border-y border-white/10 bg-gradient-to-r from-[#060b17] via-[#0c1427] to-[#070c18] py-8 sm:py-10 text-white shadow-2xl">
+      {/* Background Energy Flares */}
+      <div className="pointer-events-none absolute -top-12 left-1/4 h-56 w-56 rounded-full bg-primary/15 blur-[100px] animate-pulse" />
+      <div className="pointer-events-none absolute -bottom-10 right-1/4 h-52 w-52 rounded-full bg-amber-500/15 blur-[100px]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#f59e0b_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-[0.04]" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* TOP STATUS BAR */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-white/10">
+          <div className="flex items-center gap-2.5">
+            <span className="relative flex h-3 w-3 items-center justify-center">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            <span className="text-xs font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 uppercase">
               Live Ground Telemetry & Impact
             </span>
+            <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-400 border border-emerald-500/20">
+              <ShieldCheck className="h-2.5 w-2.5" /> Verified Ground Data
+            </span>
           </div>
+
           <Link
             to="/impact"
-            className="text-xs font-semibold text-white/80 hover:text-white flex items-center gap-1"
+            className="group inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1 text-xs font-semibold text-white/90 backdrop-blur-md transition-all hover:bg-white/15 hover:border-amber-400/50 hover:text-white"
           >
-            Full Accountability Report →
+            <span>Full Accountability Report</span>
+            <ArrowRight className="h-3 w-3 text-amber-400 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {displayMetrics.map((item: any, i: number) => (
-            <div key={item.label} className="border-l-2 border-primary/60 pl-4">
-              <p className="font-display text-3xl sm:text-4xl font-bold text-amber-400">
-                <Counter value={Number(item.value)} />
-                {item.unit && <span className="ml-1.5 text-xs text-white/80 font-mono">{item.unit}</span>}
-              </p>
-              <p className="mt-1 text-xs text-white/80 font-medium">{item.label}</p>
-            </div>
-          ))}
+        {/* 4 STAT GLASSCARDS GRID */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+          {displayMetrics.map((item: any) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.label}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:p-5 shadow-lg backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/40 hover:bg-white/[0.07]"
+              >
+                {/* Subtle Top Accent Line */}
+                <div
+                  className={cn(
+                    "absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r transition-opacity duration-300 opacity-60 group-hover:opacity-100",
+                    item.glow,
+                  )}
+                />
+
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/10 text-amber-400 shadow-inner group-hover:scale-110 transition-transform">
+                    <Icon className="h-4 w-4" />
+                  </div>
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-white/50 bg-white/5 px-2 py-0.5 rounded-full">
+                    2026 Target
+                  </span>
+                </div>
+
+                <div className="flex items-baseline gap-1.5">
+                  <p className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-amber-200 tracking-tight">
+                    <Counter value={Number(item.value)} />
+                  </p>
+                  {item.unit && (
+                    <span className="text-xs font-mono font-bold text-white/75 lowercase">
+                      {item.unit}
+                    </span>
+                  )}
+                </div>
+
+                <p className="mt-1 text-[11px] sm:text-xs font-medium text-white/80 line-clamp-1">
+                  {item.sub || item.label}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
