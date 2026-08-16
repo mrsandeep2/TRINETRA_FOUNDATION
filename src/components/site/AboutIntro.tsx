@@ -241,9 +241,9 @@ export function AboutIntro() {
                 {/* CELEBRATORY FLOATING TOAST NOTIFICATION ON BLAST */}
                 {showToast && (
                   <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 animate-[float-heart-up_1.8s_ease-out_forwards]">
-                    <div className="flex items-center gap-2 rounded-full bg-navy/90 text-white px-5 py-2 text-xs font-bold shadow-2xl border border-amber-400 backdrop-blur-xl">
-                      <Sparkles className="h-4 w-4 text-amber-400 animate-spin" />
-                      <span>Love Sent to Bihar! ❤️</span>
+                    <div className="flex items-center gap-2 rounded-full bg-navy/90 text-white px-5 py-2 text-xs font-bold shadow-2xl border border-amber-400 backdrop-blur-xl whitespace-nowrap">
+                      <Sparkles className="h-4 w-4 text-amber-400 animate-spin shrink-0" />
+                      <span>Love Sent to Trinetra Foundation! ❤️</span>
                     </div>
                   </div>
                 )}
