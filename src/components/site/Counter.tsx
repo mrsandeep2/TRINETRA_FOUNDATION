@@ -19,8 +19,8 @@ export function Counter({
   duration = 900,
   className,
 }: CounterProps) {
-  const { ref, inView } = useInView<HTMLSpanElement>();
-  const [display, setDisplay] = useState(0);
+  const { ref, inView } = useInView<HTMLSpanElement>({ rootMargin: "60px 0px" });
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!inView) return;
@@ -56,7 +56,7 @@ export function Counter({
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {display.toLocaleString("en-IN")}
+      {(display ?? value).toLocaleString("en-IN")}
       {suffix}
     </span>
   );

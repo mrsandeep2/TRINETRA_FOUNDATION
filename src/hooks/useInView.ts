@@ -8,7 +8,7 @@ type UseInViewOptions = {
 
 export function useInView<T extends Element>({
   once = true,
-  rootMargin = "-60px",
+  rootMargin = "60px 0px",
   threshold = 0.01,
 }: UseInViewOptions = {}) {
   const ref = useRef<T | null>(null);

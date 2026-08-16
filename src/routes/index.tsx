@@ -109,14 +109,18 @@ function DynamicImpactBarSection() {
     "from-green-500 to-emerald-600",
   ];
 
-  const displayMetrics = (dbMetrics && dbMetrics.length > 0 ? dbMetrics : fallbackMetrics).slice(0, 4).map((m: any, idx: number) => ({
-    label: m.label,
-    value: m.value,
-    unit: m.unit || fallbackMetrics[idx]?.unit || "",
-    sub: m.sub || fallbackMetrics[idx]?.sub || m.label,
-    icon: metricIcons[idx] || Zap,
-    glow: metricGlows[idx] || "from-amber-500 to-orange-600",
-  }));
+  const displayMetrics = (dbMetrics && dbMetrics.length > 0 ? dbMetrics : fallbackMetrics).slice(0, 4).map((m: any, idx: number) => {
+    const rawVal = Number(m.value);
+    const validVal = !isNaN(rawVal) && rawVal > 0 ? rawVal : fallbackMetrics[idx]?.value || 0;
+    return {
+      label: m.label || fallbackMetrics[idx]?.label,
+      value: validVal,
+      unit: m.unit || fallbackMetrics[idx]?.unit || "",
+      sub: m.sub || fallbackMetrics[idx]?.sub || m.label,
+      icon: metricIcons[idx] || Zap,
+      glow: metricGlows[idx] || "from-amber-500 to-orange-600",
+    };
+  });
 
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-gradient-to-r from-[#060b17] via-[#0c1427] to-[#070c18] py-8 sm:py-10 text-white shadow-2xl">
