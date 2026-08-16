@@ -12,13 +12,14 @@ import {
 import { Reveal } from "./Reveal";
 import { images, org } from "@/lib/site";
 import { cn } from "@/lib/utils";
+import teamDirector from "@/assets/team-director.jpg";
 
 // Smooth, mathematically balanced SVG heart path
 const HEART_PATH =
   "M250,440 C110,340 30,250 30,150 C30,70 90,25 160,25 C205,25 240,55 250,85 C260,55 295,25 340,25 C410,25 470,70 470,150 C470,250 390,340 250,440 Z";
 
 const teamAvatars = [
-  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80",
+  teamDirector,
   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80",
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
   "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80",

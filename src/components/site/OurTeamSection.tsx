@@ -14,6 +14,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import teamDirector from "@/assets/team-director.jpg";
 
 interface TeamMember {
   id: string;
@@ -34,10 +35,10 @@ const teamMembers: TeamMember[] = [
   {
     id: "m1",
     name: "Sandeep Kumar",
-    role: "Founder & Managing Trustee",
-    category: "Leadership",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-    bio: "Guiding grassroots relief, Section 8 compliance, and 12 welfare pillars across Bihar.",
+    role: "Director & Founder",
+    category: "Director",
+    image: teamDirector,
+    bio: "Guiding grassroots relief, Section 8 governance, and 12 welfare programmes across Northern Bihar.",
     socials: {
       facebook: "#",
       twitter: "#",
@@ -90,7 +91,7 @@ const teamMembers: TeamMember[] = [
 ];
 
 export function OurTeamSection() {
-  const [activeCardId, setActiveCardId] = useState<string>("m2");
+  const [activeCardId, setActiveCardId] = useState<string>("m1");
 
   return (
     <section className="relative overflow-hidden bg-[#fdfbf7] dark:bg-[#070c18] min-h-[640px] lg:h-[100svh] lg:max-h-[960px] flex flex-col justify-between py-4 sm:py-5 lg:py-6 border-t border-border/50">
