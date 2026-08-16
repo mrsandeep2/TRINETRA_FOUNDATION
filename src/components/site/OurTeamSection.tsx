@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import teamDirector from "@/assets/team-director.jpg";
+import teamCofounder from "@/assets/team-cofounder.jpg";
 
 interface TeamMember {
   id: string;
@@ -34,7 +35,7 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: "m1",
-    name: "Sandeep Kumar",
+    name: "Er. Abhishek Kumar Singh",
     role: "Director & Founder",
     category: "Director",
     image: teamDirector,
@@ -48,11 +49,11 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "m2",
-    name: "Priya Sharma",
-    role: "Community & Food Relief Lead",
-    category: "Field Operations",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
-    bio: "Managing daily community kitchens and food ration deliveries to vulnerable households.",
+    name: "Er. Abhinash Sahu",
+    role: "Co-Founder & Trustee",
+    category: "Co-Founder",
+    image: teamCofounder,
+    bio: "Spearheading strategic community drives, youth STEM innovation, and institutional partnerships.",
     socials: {
       facebook: "#",
       twitter: "#",
@@ -76,11 +77,11 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "m4",
-    name: "Rahul Verma",
-    role: "Youth & STEM Education Mentor",
-    category: "Education",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
-    bio: "Leading STEM learning labs, computer literacy, and scholarship mentoring for village students.",
+    name: "Priya Sharma",
+    role: "Community & Food Relief Lead",
+    category: "Field Operations",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+    bio: "Managing daily community kitchens and food ration deliveries to vulnerable households.",
     socials: {
       facebook: "#",
       twitter: "#",
@@ -91,10 +92,13 @@ const teamMembers: TeamMember[] = [
 ];
 
 export function OurTeamSection() {
-  const [activeCardId, setActiveCardId] = useState<string>("m1");
+  const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
   return (
-    <section className="relative overflow-hidden bg-[#fdfbf7] dark:bg-[#070c18] min-h-[640px] lg:h-[100svh] lg:max-h-[960px] flex flex-col justify-between py-4 sm:py-5 lg:py-6 border-t border-border/50">
+    <section
+      onClick={() => setActiveCardId(null)}
+      className="relative overflow-hidden bg-[#fdfbf7] dark:bg-[#070c18] min-h-[640px] lg:h-[100svh] lg:max-h-[960px] flex flex-col justify-between py-4 sm:py-5 lg:py-6 border-t border-border/50"
+    >
       {/* Background Ambient Flares */}
       <div className="pointer-events-none absolute top-1/4 -left-28 h-80 w-80 rounded-full bg-primary/10 blur-[130px]" />
       <div className="pointer-events-none absolute -bottom-10 right-10 h-72 w-72 rounded-full bg-amber-500/10 blur-[110px]" />
@@ -111,7 +115,7 @@ export function OurTeamSection() {
               </span>
               <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-semibold text-muted-foreground">
                 <ShieldCheck className="h-3 w-3 text-emerald-500" />
-                Grassroots Volunteers
+                Grassroots Volunteers & Leadership
               </span>
             </div>
 
@@ -145,7 +149,15 @@ export function OurTeamSection() {
               <div
                 key={member.id}
                 onMouseEnter={() => setActiveCardId(member.id)}
-                onClick={() => setActiveCardId(member.id)}
+                onMouseLeave={() => setActiveCardId(null)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveCardId(isActive ? null : member.id);
+                }}
+                onTouchStart={(e) => {
+                  e.stopPropagation();
+                  setActiveCardId(member.id);
+                }}
                 className={cn(
                   "group relative overflow-hidden rounded-[2rem] transition-all duration-300 cursor-pointer select-none flex flex-col justify-between max-h-[440px]",
                   isActive
@@ -164,20 +176,20 @@ export function OurTeamSection() {
                   />
                   <div
                     className={cn(
-                      "absolute inset-0 transition-opacity duration-300",
+                      "absolute inset-0 transition-opacity duration-300 pointer-events-none",
                       isActive
                         ? "bg-gradient-to-t from-[#ea580c] via-transparent to-transparent opacity-80"
                         : "bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-35",
                     )}
                   />
 
-                  {/* FLOATING SOCIAL MEDIA ICONS OVERLAY ON ACTIVE/HOVER CARD */}
+                  {/* FLOATING SOCIAL MEDIA ICONS OVERLAY ON ACTIVE / TOUCH / HOVER ONLY */}
                   <div
                     className={cn(
                       "absolute bottom-3 inset-x-0 flex items-center justify-center gap-1.5 transition-all duration-300",
                       isActive
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0",
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 translate-y-2 pointer-events-none",
                     )}
                   >
                     <a
@@ -215,7 +227,7 @@ export function OurTeamSection() {
                   </div>
                 </div>
 
-                {/* BOTTOM NAME & ROLE DETAILS (MATCHING REFERENCE ORANGE CARD) */}
+                {/* BOTTOM NAME & ROLE DETAILS */}
                 <div
                   className={cn(
                     "p-3.5 sm:p-4 text-center transition-colors duration-300",
@@ -248,10 +260,9 @@ export function OurTeamSection() {
         <div className="shrink-0 pt-2 pb-1 text-center">
           <p className="text-xs text-muted-foreground flex items-center justify-center gap-2">
             <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Over 120+ active field volunteers driving daily welfare in Forbesganj & Araria, Bihar.</span>
-            <Link to="/volunteer" className="font-bold text-primary hover:underline ml-1">
-              Join the Movement →
-            </Link>
+            <span>
+              100% Volunteer Driven & Transparently Audited under MCA Section 8 Governance
+            </span>
           </p>
         </div>
       </div>
