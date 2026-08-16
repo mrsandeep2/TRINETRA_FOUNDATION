@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -86,6 +87,11 @@ function HomePage() {
 // Decorated 2035 Live Ground Telemetry & Impact Strip
 function DynamicImpactBarSection() {
   const { data: dbMetrics } = useQuery(metricsQuery);
+  const [cardTrigger, setCardTrigger] = useState<Record<string, number>>({});
+
+  const triggerCard = (key: string) => {
+    setCardTrigger((prev) => ({ ...prev, [key]: (prev[key] || 0) + 1 }));
+  };
 
   const fallbackMetrics = [
     { label: "Meals & Food Kits", value: 25000, unit: "meals", sub: "Meals target for 2026", icon: UtensilsCrossed, glow: "from-amber-500 to-orange-600" },
@@ -150,7 +156,12 @@ function DynamicImpactBarSection() {
             return (
               <div
                 key={item.label}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:p-5 shadow-lg backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/40 hover:bg-white/[0.07]"
+                onMouseEnter={() => triggerCard(item.label)}
+                onPointerEnter={() => triggerCard(item.label)}
+                onTouchStart={() => triggerCard(item.label)}
+                onPointerDown={() => triggerCard(item.label)}
+                onClick={() => triggerCard(item.label)}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:p-5 shadow-lg backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/40 hover:bg-white/[0.07] cursor-pointer select-none active:scale-98"
               >
                 {/* Subtle Top Accent Line */}
                 <div
@@ -171,7 +182,7 @@ function DynamicImpactBarSection() {
 
                 <div className="flex items-baseline gap-1.5">
                   <p className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-amber-200 tracking-tight">
-                    <Counter value={Number(item.value)} />
+                    <Counter value={Number(item.value)} triggerKey={cardTrigger[item.label] || 0} />
                   </p>
                   {item.unit && (
                     <span className="text-xs font-mono font-bold text-white/75 lowercase">

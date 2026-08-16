@@ -300,7 +300,8 @@ export function SiteHeader() {
                       return (
                         <Link
                           key={area.slug}
-                          to={`/work/${area.slug}`}
+                          to="/work/$slug"
+                          params={{ slug: area.slug }}
                           onClick={() => setWorkOpen(false)}
                           className={cn(
                             "group/item relative flex items-start gap-2.5 rounded-2xl p-2.5 transition-all duration-150",
@@ -551,7 +552,8 @@ export function SiteHeader() {
                   {workAreas.map((area) => (
                     <Link
                       key={area.slug}
-                      to={`/work/${area.slug}`}
+                      to="/work/$slug"
+                      params={{ slug: area.slug }}
                       onClick={() => setMobileOpen(false)}
                       className={cn(
                         "rounded-xl px-2.5 py-1.5 text-xs font-bold text-navy dark:text-white transition-colors",

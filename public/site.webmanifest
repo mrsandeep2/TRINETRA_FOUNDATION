@@ -1,0 +1,21 @@
+{
+  "name": "Trinetra Foundation",
+  "short_name": "Trinetra",
+  "description": "Section 8 non-profit in Forbesganj, Bihar working across education, food relief, healthcare, animal welfare, and environment.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbf8f2",
+  "theme_color": "#ea580c",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/trinetra-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

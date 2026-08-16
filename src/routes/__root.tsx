@@ -14,10 +14,10 @@ import { SiteHeader } from "../components/site/SiteHeader";
 import { SiteFooter } from "../components/site/SiteFooter";
 import { ScrollProgress } from "../components/site/ScrollProgress";
 import { Toaster } from "../components/ui/sonner";
-import { SiteLoadingScreen } from "../components/site/SiteLoadingScreen";
+import { SiteLoadingScreen, PageInitialLoader } from "../components/site/SiteLoadingScreen";
 
 function RootPendingComponent() {
-  return <SiteLoadingScreen timeoutMs={6500} />;
+  return <SiteLoadingScreen />;
 }
 
 function NotFoundComponent() {
@@ -65,15 +65,40 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Trinetra Foundation is a Section 8 non-profit in Forbesganj, Bihar working across education, food, health, livelihood, environment and animal welfare.",
+          "Trinetra Foundation is a registered Section 8 non-profit in Forbesganj, Araria, Bihar working across education, food security, health care, livelihoods, environmental afforestation and animal welfare.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Trinetra Foundation, NGO Bihar, NGO Forbesganj, 80G Tax Exemption NGO, Donate for Education, Food Relief Bihar, Animal Welfare Gaushala, Health Camps Araria",
       },
       { name: "author", content: "Trinetra Foundation" },
-      { property: "og:type", content: "website" },
+      { name: "theme-color", content: "#ea580c" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
+      { property: "og:type", content: "non_profit" },
       { property: "og:site_name", content: "Trinetra Foundation" },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:title", content: "Trinetra Foundation — Serving Humanity, Empowering Communities" },
+      {
+        property: "og:description",
+        content:
+          "Trinetra Foundation is a Section 8 non-profit organisation registered in Forbesganj, Bihar working across 12 welfare sectors with verified ground audits.",
+      },
+      { property: "og:url", content: "https://trinetrafoundation.org/" },
+      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { property: "og:image:alt", content: "Trinetra Foundation Official Emblem" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "robots", content: "index, follow" },
+      { name: "twitter:site", content: "@TrinetraNGO" },
+      { name: "twitter:title", content: "Trinetra Foundation — Serving Humanity, Empowering Communities" },
+      {
+        name: "twitter:description",
+        content: "Registered Section 8 NGO in Bihar empowering lives through education, healthcare, nutrition & environmental action.",
+      },
+      { name: "twitter:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
     ],
     links: [
+      { rel: "canonical", href: "https://trinetrafoundation.org/" },
+      { rel: "manifest", href: "/site.webmanifest" },
       { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
       { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -93,20 +118,66 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "NGO",
-          name: "Trinetra Foundation",
-          description:
-            "Section 8 non-profit in Forbesganj, Araria, Bihar working across education, food, health, livelihood, environment and animal welfare.",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "TV Centre, Block Road, Forbesganj",
-            addressLocality: "Forbesganj, Araria",
-            addressRegion: "Bihar",
-            postalCode: "854318",
-            addressCountry: "IN",
-          },
-          telephone: "+91-7562891937",
-          email: "trinetrafoundationofficially@gmail.com",
+          "@graph": [
+            {
+              "@type": "NGO",
+              "@id": "https://trinetrafoundation.org/#organization",
+              name: "Trinetra Foundation",
+              alternateName: ["Trinetra NGO", "Trinetra Foundation Bihar"],
+              url: "https://trinetrafoundation.org",
+              logo: "https://trinetrafoundation.org/trinetra-logo.png",
+              image: "https://trinetrafoundation.org/trinetra-logo.png",
+              description:
+                "Trinetra Foundation is a Section 8 non-profit company registered under the Companies Act, 2013 in Forbesganj, Araria, Bihar, dedicated to human, animal, and environmental welfare.",
+              taxID: "U88900BR2026NPL084393",
+              nonprofitStatus: "Nonprofit501c3",
+              foundingDate: "2026",
+              founder: [
+                {
+                  "@type": "Person",
+                  name: "Er. Abhishek Kumar Singh",
+                  jobTitle: "Founder & Director",
+                },
+                {
+                  "@type": "Person",
+                  name: "Er. Abhinash Sahu",
+                  jobTitle: "Co-Founder & Trustee",
+                },
+              ],
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "TV Centre, Block Road, Forbesganj",
+                addressLocality: "Forbesganj",
+                addressRegion: "Bihar",
+                postalCode: "854318",
+                addressCountry: "IN",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-7562891937",
+                contactType: "Customer Support",
+                areaServed: "IN",
+                availableLanguage: ["en", "hi"],
+                email: "trinetrafoundationofficially@gmail.com",
+              },
+              sameAs: [
+                "https://facebook.com/trinetrafoundation",
+                "https://instagram.com/trinetrafoundation",
+                "https://twitter.com/trinetra_org",
+                "https://linkedin.com/company/trinetrafoundation",
+              ],
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://trinetrafoundation.org/#website",
+              url: "https://trinetrafoundation.org",
+              name: "Trinetra Foundation",
+              publisher: {
+                "@id": "https://trinetrafoundation.org/#organization",
+              },
+              inLanguage: "en-IN",
+            },
+          ],
         }),
       },
     ],
@@ -136,6 +207,7 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <PageInitialLoader minDisplayMs={1300} />
       <ScrollProgress />
       <div className="flex min-h-screen flex-col">
         <SiteHeader />

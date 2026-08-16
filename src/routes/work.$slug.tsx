@@ -17,16 +17,42 @@ export const Route = createFileRoute("/work/$slug")({
     if (!loaderData) {
       return { meta: [{ title: "Programme not found — Trinetra Foundation" }, { name: "robots", content: "noindex" }] };
     }
-    const title = `${loaderData.area.title} — Trinetra Foundation`;
+    const title = `${loaderData.area.title} — Trinetra Foundation | Forbesganj, Bihar`;
+    const fullUrl = `https://trinetrafoundation.org/work/${params.slug}`;
+    const imageUrl = loaderData.area.image ? `https://trinetrafoundation.org${loaderData.area.image}` : "https://trinetrafoundation.org/trinetra-logo.png";
     return {
       meta: [
         { title },
-        { name: "description", content: loaderData.area.short },
+        { name: "description", content: loaderData.area.description || loaderData.area.short },
         { property: "og:title", content: title },
-        { property: "og:description", content: loaderData.area.short },
-        { property: "og:url", content: `/work/${params.slug}` },
+        { property: "og:description", content: loaderData.area.description || loaderData.area.short },
+        { property: "og:url", content: fullUrl },
+        { property: "og:image", content: imageUrl },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: loaderData.area.short },
+        { name: "twitter:image", content: imageUrl },
       ],
-      links: [{ rel: "canonical", href: `/work/${params.slug}` }],
+      links: [{ rel: "canonical", href: fullUrl }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: loaderData.area.title,
+            description: loaderData.area.description || loaderData.area.short,
+            provider: {
+              "@id": "https://trinetrafoundation.org/#organization",
+            },
+            areaServed: {
+              "@type": "AdministrativeArea",
+              name: "Bihar, India",
+            },
+            url: fullUrl,
+          }),
+        },
+      ],
     };
   },
   notFoundComponent: WorkNotFound,

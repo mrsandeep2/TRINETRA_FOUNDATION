@@ -24,6 +24,7 @@ import donateHealth from "@/assets/donate-health.jpg";
 import donateAnimal from "@/assets/donate-animal.jpg";
 import donateEnvironment from "@/assets/donate-environment.jpg";
 import { cn } from "@/lib/utils";
+import { Counter, AnimatedProgressBar } from "./Counter";
 
 interface CampaignItem {
   id: string;
@@ -174,8 +175,13 @@ export function HelpAndDonateSection() {
     "gaushala-care": 315,
     "afforestation-water": 84,
   });
+  const [cardTouchTrigger, setCardTouchTrigger] = useState<Record<string, number>>({});
   const [activeHeartAnimation, setActiveHeartAnimation] = useState<string | null>(null);
   const [tickerIndex, setTickerIndex] = useState(0);
+
+  const triggerCardCount = (id: string) => {
+    setCardTouchTrigger((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  };
 
   // Quick Pledge Modal State
   const [quickPledgeModal, setQuickPledgeModal] = useState<{
@@ -283,7 +289,9 @@ export function HelpAndDonateSection() {
                 </p>
                 <p className="text-[9px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5 flex items-center gap-1">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping shrink-0" />
-                  <span>{currentLiveFeed.donor} gave ₹{currentLiveFeed.amount} ({currentLiveFeed.time})</span>
+                  <span>
+                    {currentLiveFeed ? `${currentLiveFeed.donor} gave ₹${currentLiveFeed.amount} (${currentLiveFeed.time})` : "Direct community support active"}
+                  </span>
                 </p>
               </div>
             </div>
@@ -317,8 +325,9 @@ export function HelpAndDonateSection() {
         >
           {campaigns.map((item) => {
             const isHovered = hoveredCard === item.id;
-            const currentSelectedAmount = selectedTiers[item.id] || item.tiers[0].amount;
-            const activeTier = item.tiers.find((t) => t.amount === currentSelectedAmount) || item.tiers[0];
+            const fallbackTier = item.tiers[0] || { amount: 500, label: "₹500", impact: "Emergency food & relief kit" };
+            const currentSelectedAmount = selectedTiers[item.id] || fallbackTier.amount;
+            const activeTier = item.tiers.find((t) => t.amount === currentSelectedAmount) || fallbackTier;
             const loves = lovedCards[item.id] || 120;
             const isHeartBursting = activeHeartAnimation === item.id;
 
@@ -330,10 +339,23 @@ export function HelpAndDonateSection() {
             return (
               <div
                 key={item.id}
-                onMouseEnter={() => setHoveredCard(item.id)}
+                onMouseEnter={() => {
+                  setHoveredCard(item.id);
+                  triggerCardCount(item.id);
+                }}
+                onPointerEnter={() => {
+                  setHoveredCard(item.id);
+                  triggerCardCount(item.id);
+                }}
                 onMouseLeave={() => setHoveredCard(null)}
-                onTouchStart={() => setHoveredCard(item.id)}
-                className="group relative flex-none w-[290px] sm:w-[325px] lg:w-[345px] snap-start rounded-[2rem] border border-white/90 dark:border-white/10 bg-white/95 dark:bg-[#0d1527]/95 p-3.5 sm:p-4 shadow-[0_12px_35px_-12px_rgba(20,28,50,0.12)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-12px_rgba(234,88,12,0.25)] flex flex-col justify-between"
+                onPointerLeave={() => setHoveredCard(null)}
+                onTouchStart={() => {
+                  setHoveredCard(item.id);
+                  triggerCardCount(item.id);
+                }}
+                onPointerDown={() => triggerCardCount(item.id)}
+                onClick={() => triggerCardCount(item.id)}
+                className="group relative flex-none w-[290px] sm:w-[325px] lg:w-[345px] snap-start rounded-[2rem] border border-white/90 dark:border-white/10 bg-white/95 dark:bg-[#0d1527]/95 p-3.5 sm:p-4 shadow-[0_12px_35px_-12px_rgba(20,28,50,0.12)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-12px_rgba(234,88,12,0.25)] flex flex-col justify-between cursor-pointer active:scale-98 select-none"
               >
                 {/* Glowing Laser Perimeter Border on Hover */}
                 <div
@@ -372,7 +394,9 @@ export function HelpAndDonateSection() {
                           isHeartBursting && "scale-150 animate-ping",
                         )}
                       />
-                      <span className="text-[10px] font-bold text-navy dark:text-white">{loves}</span>
+                      <span className="text-[10px] font-bold text-navy dark:text-white">
+                        <Counter value={loves} triggerKey={cardTouchTrigger[item.id] || 0} />
+                      </span>
                     </button>
                   </div>
 
@@ -413,33 +437,35 @@ export function HelpAndDonateSection() {
 
                   {/* PROGRESS BAR & STATS */}
                   <div className="mt-3 relative">
-                    <div className="flex justify-between items-center mb-1">
+                    <div className="flex justify-between items-center mb-0.5">
                       <span className="text-[10px] font-semibold text-muted-foreground flex items-center gap-1">
                         <TrendingUp className="h-2.5 w-2.5 text-primary" /> Progress
                       </span>
-                      <span className="font-display font-bold text-[11px] text-primary bg-primary/10 px-2 py-0.2 rounded-full border border-primary/20">
-                        {dynamicProgress}%
-                      </span>
                     </div>
 
-                    <div className="relative h-2 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-white/10 shadow-inner">
-                      <div
-                        className={cn(
-                          "h-full rounded-full bg-gradient-to-r transition-all duration-500 relative overflow-hidden",
-                          item.categoryGradient,
-                        )}
-                        style={{ width: `${dynamicProgress}%` }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[holo-shimmer_2s_infinite]" />
-                      </div>
-                    </div>
+                    <AnimatedProgressBar
+                      percentage={dynamicProgress}
+                      triggerKey={cardTouchTrigger[item.id] || 0}
+                      categoryGradient={item.categoryGradient}
+                    />
 
                     <div className="mt-1.5 flex items-center justify-between text-[11px] font-bold">
                       <span className="text-navy dark:text-white">
-                        Raised: <span className="font-mono text-primary">₹{item.raised.toLocaleString("en-IN")}</span>
+                        Raised:{" "}
+                        <Counter
+                          value={item.raised}
+                          prefix="₹"
+                          triggerKey={cardTouchTrigger[item.id] || 0}
+                          className="font-mono text-primary"
+                        />
                       </span>
                       <span className="text-muted-foreground font-mono text-[10px]">
-                        Goal: ₹{item.goal.toLocaleString("en-IN")}
+                        Goal:{" "}
+                        <Counter
+                          value={item.goal}
+                          prefix="₹"
+                          triggerKey={cardTouchTrigger[item.id] || 0}
+                        />
                       </span>
                     </div>
                   </div>
@@ -463,12 +489,14 @@ export function HelpAndDonateSection() {
                           <button
                             key={tier.amount}
                             type="button"
-                            onClick={() =>
+                            onClick={(e) => {
+                              e.stopPropagation();
                               setSelectedTiers((prev) => ({
                                 ...prev,
                                 [item.id]: tier.amount,
-                              }))
-                            }
+                              }));
+                              triggerCardCount(item.id);
+                            }}
                             className={cn(
                               "rounded-lg py-1 px-1 text-center transition-all duration-200 cursor-pointer select-none border",
                               isChosen
@@ -505,7 +533,10 @@ export function HelpAndDonateSection() {
                 <div className="mt-3 pt-2.5 border-t border-border/50 relative z-10 flex items-center justify-between gap-2">
                   <button
                     type="button"
-                    onClick={() => openQuickPledge(item, currentSelectedAmount)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openQuickPledge(item, currentSelectedAmount);
+                    }}
                     className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-navy dark:bg-primary px-4 py-2 text-[11px] font-bold tracking-wider text-white uppercase shadow-xs transition-all duration-300 hover:bg-primary dark:hover:bg-primary/90 hover:scale-102 active:scale-98 cursor-pointer group/btn"
                   >
                     <span>Donate ₹{currentSelectedAmount.toLocaleString("en-IN")}</span>
@@ -514,7 +545,7 @@ export function HelpAndDonateSection() {
 
                   <span className="text-[10px] font-semibold text-muted-foreground flex items-center gap-1">
                     <Users className="h-3 w-3 text-emerald-500" />
-                    {item.donorCount}
+                    <Counter value={item.donorCount} triggerKey={cardTouchTrigger[item.id] || 0} />
                   </span>
                 </div>
               </div>
@@ -598,7 +629,6 @@ export function HelpAndDonateSection() {
               to="/donate"
               search={{
                 amount: quickPledgeModal.amount,
-                cause: quickPledgeModal.campaign.id,
               }}
               className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary via-[#ea580c] to-[#d97706] px-6 py-3.5 text-xs font-bold tracking-wider text-white uppercase shadow-lg hover:scale-102 active:scale-98 transition-all text-center"
             >

@@ -9,27 +9,34 @@ import { org } from "@/lib/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Trinetra Foundation" },
-      { name: "description", content: "Reach Trinetra Foundation in Forbesganj, Araria, Bihar by phone, email or message for programmes, volunteering and partnerships." },
-      { property: "og:title", content: "Contact — Trinetra Foundation" },
-      { property: "og:description", content: "Get in touch with the Trinetra Foundation team." },
-      { property: "og:url", content: "/contact" },
+      { title: "Contact Us — Trinetra Foundation | Forbesganj, Araria, Bihar Office" },
+      {
+        name: "description",
+        content:
+          "Reach Trinetra Foundation head office in Forbesganj, Araria, Bihar. Phone: +91 7562891937, Email: trinetrafoundationofficially@gmail.com. Inquire for donations, CSR, or volunteering.",
+      },
+      { property: "og:title", content: "Contact Us — Trinetra Foundation | Bihar Office" },
+      {
+        property: "og:description",
+        content: "Get in touch with the Trinetra Foundation team for programmes, donations, or volunteering.",
+      },
+      { property: "og:url", content: "https://trinetrafoundation.org/contact" },
+      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Contact Trinetra Foundation" },
+      { name: "twitter:description", content: "Forbesganj, Araria, Bihar. Call +91 7562891937." },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/contact" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "NGO",
-          name: org.name,
-          email: org.email,
-          telephone: org.phone,
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: org.address,
-            addressRegion: "Bihar",
-            addressCountry: "IN",
+          "@type": "ContactPage",
+          name: "Contact Trinetra Foundation",
+          url: "https://trinetrafoundation.org/contact",
+          mainEntity: {
+            "@id": "https://trinetrafoundation.org/#organization",
           },
         }),
       },

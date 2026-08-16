@@ -8,13 +8,38 @@ import { partnershipTypes } from "@/lib/site";
 export const Route = createFileRoute("/partner")({
   head: () => ({
     meta: [
-      { title: "Partner With Us — Trinetra Foundation" },
-      { name: "description", content: "CSR, academic, healthcare, government and NGO partnerships with Trinetra Foundation." },
-      { property: "og:title", content: "Partner With Us — Trinetra Foundation" },
-      { property: "og:description", content: "Collaborate on education, health, livelihood and environmental programmes." },
-      { property: "og:url", content: "/partner" },
+      { title: "CSR & Institutional Partnerships — Trinetra Foundation | Bihar" },
+      {
+        name: "description",
+        content:
+          "Partner with Trinetra Foundation for Corporate Social Responsibility (CSR) projects, academic collaborations, healthcare partnerships, and community interventions in Bihar.",
+      },
+      { property: "og:title", content: "CSR & Institutional Partnerships — Trinetra Foundation" },
+      {
+        property: "og:description",
+        content: "Collaborate on high-impact CSR education, health, and environmental programmes in Bihar.",
+      },
+      { property: "og:url", content: "https://trinetrafoundation.org/partner" },
+      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Partner With Trinetra Foundation" },
+      { name: "twitter:description", content: "CSR and institutional partnerships for sustainable development in Bihar." },
     ],
-    links: [{ rel: "canonical", href: "/partner" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/partner" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "CSR & Institutional Partnerships",
+          url: "https://trinetrafoundation.org/partner",
+          publisher: {
+            "@id": "https://trinetrafoundation.org/#organization",
+          },
+        }),
+      },
+    ],
   }),
   component: PartnerPage,
 });

@@ -9,17 +9,38 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/work/")({
   head: () => ({
     meta: [
-      { title: "Our 12 Welfare Programmes — Trinetra Foundation" },
+      { title: "Our 12 Welfare Programmes — Trinetra Foundation | Forbesganj, Bihar" },
       {
         name: "description",
         content:
-          "Twelve programme areas: food, education, student empowerment, healthcare, livelihood, animal welfare, environment, disaster relief, rural development, human rights, culture and research.",
+          "Explore the 12 comprehensive welfare programmes run by Trinetra Foundation: hunger relief, child education, healthcare clinics, animal gaushala, afforestation, women empowerment, and disaster relief in Bihar.",
       },
-      { property: "og:title", content: "Our Work — Trinetra Foundation" },
-      { property: "og:description", content: "Explore all twelve programme areas of Trinetra Foundation." },
-      { property: "og:url", content: "/work" },
+      { property: "og:title", content: "Our 12 Welfare Programmes — Trinetra Foundation" },
+      {
+        property: "og:description",
+        content: "Verified social impact across education, healthcare, nutrition, and sustainability in Bihar.",
+      },
+      { property: "og:url", content: "https://trinetrafoundation.org/work" },
+      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "12 Welfare Programmes — Trinetra Foundation" },
+      { name: "twitter:description", content: "Grassroots impact across 12 sectors in Forbesganj & Araria district." },
     ],
-    links: [{ rel: "canonical", href: "/work" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/work" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Our 12 Welfare Programmes",
+          url: "https://trinetrafoundation.org/work",
+          publisher: {
+            "@id": "https://trinetrafoundation.org/#organization",
+          },
+        }),
+      },
+    ],
   }),
   component: WorkIndex,
 });

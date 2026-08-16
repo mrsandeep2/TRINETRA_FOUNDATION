@@ -7,18 +7,49 @@ import { donationTiers, org } from "@/lib/site";
 import { formatInr } from "@/lib/queries";
 
 export const Route = createFileRoute("/donate")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    amount: search.amount ? Number(search.amount) || undefined : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { amount?: number } => {
+    const raw = search["amount"];
+    const parsed = typeof raw === "number" ? raw : Number(raw);
+    if (!Number.isNaN(parsed) && parsed > 0) {
+      return { amount: parsed };
+    }
+    return {};
+  },
   head: () => ({
     meta: [
-      { title: "Donate — Trinetra Foundation" },
-      { name: "description", content: "Support education, food, healthcare, livelihood and environmental programmes run by Trinetra Foundation in Bihar." },
-      { property: "og:title", content: "Donate — Trinetra Foundation" },
-      { property: "og:description", content: "Fund programmes that pair immediate relief with lasting capability." },
-      { property: "og:url", content: "/donate" },
+      { title: "Donate Online — Trinetra Foundation | 80G Tax Deductible NGO Bihar" },
+      {
+        name: "description",
+        content:
+          "Make a tax-deductible donation to Trinetra Foundation. Support food relief, STEM education, free health camps, and gaushala animal care in Bihar with 80G receipts.",
+      },
+      { property: "og:title", content: "Donate Online — Trinetra Foundation | 80G Certified" },
+      {
+        property: "og:description",
+        content: "Fund transparent community programmes in Bihar with instant digital tax receipts and ground audits.",
+      },
+      { property: "og:url", content: "https://trinetrafoundation.org/donate" },
+      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Donate to Trinetra Foundation" },
+      { name: "twitter:description", content: "100% transparent donation with 80G tax benefit receipt." },
     ],
-    links: [{ rel: "canonical", href: "/donate" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/donate" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "DonateAction",
+          name: "Donate to Trinetra Foundation",
+          recipient: {
+            "@id": "https://trinetrafoundation.org/#organization",
+          },
+          url: "https://trinetrafoundation.org/donate",
+          description: "Online donation supporting education, health, and relief in Bihar with 80G certificate.",
+        }),
+      },
+    ],
   }),
   component: DonatePage,
 });

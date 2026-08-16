@@ -24,17 +24,38 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/transparency")({
   head: () => ({
     meta: [
-      { title: "Transparency & Legal Governance — Trinetra Foundation" },
+      { title: "Transparency & Legal Disclosures — Trinetra Foundation | Section 8 NGO Bihar" },
       {
         name: "description",
         content:
-          "Registration details, governing documents, 80G tax exemption, CIN verification and audited annual disclosures of Trinetra Foundation, a Section 8 non-profit company.",
+          "Public disclosures, Section 8 registration certificate, CIN U88900BR2026NPL084393, 80G tax exemption, 12A approvals, and financial audits for Trinetra Foundation.",
       },
-      { property: "og:title", content: "Transparency & Governance — Trinetra Foundation" },
-      { property: "og:description", content: "Our legal registration, governance documents and reporting commitments." },
-      { property: "og:url", content: "/transparency" },
+      { property: "og:title", content: "Transparency & Legal Governance — Trinetra Foundation" },
+      {
+        property: "og:description",
+        content: "Verified registration certificate, Section 8 compliance, 80G certificate, and audited filings.",
+      },
+      { property: "og:url", content: "https://trinetrafoundation.org/transparency" },
+      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Legal Disclosures & Audits — Trinetra Foundation" },
+      { name: "twitter:description", content: "100% public accountability with verified government registrations." },
     ],
-    links: [{ rel: "canonical", href: "/transparency" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/transparency" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "Trinetra Foundation Transparency & Legal Disclosures",
+          url: "https://trinetrafoundation.org/transparency",
+          mainEntity: {
+            "@id": "https://trinetrafoundation.org/#organization",
+          },
+        }),
+      },
+    ],
   }),
   component: TransparencyPage,
 });

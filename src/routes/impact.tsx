@@ -22,17 +22,38 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/impact")({
   head: () => ({
     meta: [
-      { title: "Impact & Accountability Metrics — Trinetra Foundation" },
+      { title: "Impact & Ground Telemetry — Trinetra Foundation | Verified Bihar Data" },
       {
         name: "description",
         content:
-          "Verifiable metrics, impact measurement framework, and transparent ground reporting across all 12 programmes of Trinetra Foundation in Bihar.",
+          "Live impact metrics, audited beneficiary numbers, and real-time field reports across healthcare, food distribution, and education in Forbesganj & Araria.",
       },
-      { property: "og:title", content: "Impact & Accountability — Trinetra Foundation" },
-      { property: "og:description", content: "Trinetra Foundation's measurement framework and verifiable impact targets." },
-      { property: "og:url", content: "/impact" },
+      { property: "og:title", content: "Impact & Ground Telemetry — Trinetra Foundation" },
+      {
+        property: "og:description",
+        content: "Transparent reporting and live telemetry tracking 12 welfare programmes in Bihar.",
+      },
+      { property: "og:url", content: "https://trinetrafoundation.org/impact" },
+      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Impact & Accountability — Trinetra Foundation" },
+      { name: "twitter:description", content: "Audited numbers and ground impact data from Forbesganj, Bihar." },
     ],
-    links: [{ rel: "canonical", href: "/impact" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/impact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Impact & Accountability Metrics",
+          url: "https://trinetrafoundation.org/impact",
+          publisher: {
+            "@id": "https://trinetrafoundation.org/#organization",
+          },
+        }),
+      },
+    ],
   }),
   component: ImpactPage,
 });

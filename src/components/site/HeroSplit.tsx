@@ -124,7 +124,7 @@ export function HeroSplit() {
   const [sparks, setSparks] = useState<SparkParticle[]>([]);
   const cardRef = useRef<HTMLDivElement | null>(null);
 
-  const activePillar = heroPillars[activeIdx];
+  const activePillar = heroPillars[activeIdx] || heroPillars[0]!;
 
   // Circle drawing progress: anchored at start point, grows around 360°, and on touching start point changes content
   useEffect(() => {
@@ -189,7 +189,7 @@ export function HeroSplit() {
         tx: Math.cos(angle) * dist,
         ty: Math.sin(angle) * dist,
         rot: (Math.random() - 0.5) * 120,
-        emoji: emojis[Math.floor(Math.random() * emojis.length)],
+        emoji: emojis[Math.floor(Math.random() * emojis.length)] || "✨",
       };
     });
 

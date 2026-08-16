@@ -6,20 +6,38 @@ import { images, org, values, workAreas } from "@/lib/site";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Trinetra Foundation" },
+      { title: "About Us — Trinetra Foundation | Mission, Leadership & Values" },
       {
         name: "description",
         content:
-          "Trinetra Foundation is a Section 8 non-profit registered in Forbesganj, Araria, Bihar, working on relief, education, health, livelihood, environment and animal welfare.",
+          "Learn about Trinetra Foundation, a registered Section 8 NGO founded by Er. Abhishek Kumar Singh & Er. Abhinash Sahu in Forbesganj, Bihar working for education, health, and welfare.",
       },
-      { property: "og:title", content: "About — Trinetra Foundation" },
+      { property: "og:title", content: "About Us — Trinetra Foundation | Leadership & Governance" },
       {
         property: "og:description",
-        content: "Our mission, vision, values and governance as a registered Section 8 non-profit.",
+        content: "Our mission, vision, values, leadership, and governance as a registered Section 8 non-profit in Bihar.",
       },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://trinetrafoundation.org/about" },
+      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "About Us — Trinetra Foundation" },
+      { name: "twitter:description", content: "Our mission, vision, values and governance in Forbesganj, Bihar." },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Trinetra Foundation",
+          url: "https://trinetrafoundation.org/about",
+          mainEntity: {
+            "@id": "https://trinetrafoundation.org/#organization",
+          },
+        }),
+      },
+    ],
   }),
   component: AboutPage,
 });

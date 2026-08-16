@@ -3,38 +3,20 @@ import { RefreshCw, AlertCircle, Home, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SiteLoadingScreenProps {
-  /** Timeout in milliseconds before switching to error fallback (default: 6500ms) */
-  timeoutMs?: number;
-  /** Optional manual error state trigger */
+  /** Explicit error state trigger */
   hasError?: boolean;
   /** Retry callback function */
   onRetry?: () => void;
 }
 
 export function SiteLoadingScreen({
-  timeoutMs = 6500,
   hasError = false,
   onRetry,
 }: SiteLoadingScreenProps) {
-  const [timedOut, setTimedOut] = useState(hasError);
   const [isRetrying, setIsRetrying] = useState(false);
-
-  useEffect(() => {
-    if (hasError) {
-      setTimedOut(true);
-      return;
-    }
-
-    const timer = setTimeout(() => {
-      setTimedOut(true);
-    }, timeoutMs);
-
-    return () => clearTimeout(timer);
-  }, [timeoutMs, hasError]);
 
   const handleRetry = () => {
     setIsRetrying(true);
-    setTimedOut(false);
     if (onRetry) {
       onRetry();
     } else {
@@ -55,7 +37,7 @@ export function SiteLoadingScreen({
       {/* ========================================================================= */}
       {/* 1. SKELETON MODE (NO TEXT, FLOATING CARDS, SUBTLE SHIMMER & SOFT BLUR)   */}
       {/* ========================================================================= */}
-      {!timedOut ? (
+      {!hasError ? (
         <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-between p-4 sm:p-6 lg:p-8 animate-in fade-in duration-500">
           {/* Top Floating Header Capsule Placeholder */}
           <div className="mx-auto flex w-full max-w-5xl items-center justify-between rounded-full border border-white/80 dark:border-white/10 bg-white/70 dark:bg-white/5 px-4 py-2.5 shadow-[0_10px_30px_-10px_rgba(20,28,50,0.08)] backdrop-blur-2xl">
@@ -207,6 +189,37 @@ export function SiteLoadingScreen({
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+/** Smooth Initial/Refresh Page Loader that guarantees 1.2s of modern skeleton experience before fading out */
+export function PageInitialLoader({ minDisplayMs = 1200 }: { minDisplayMs?: number }) {
+  const [show, setShow] = useState(true);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFading(true);
+      const removeTimer = setTimeout(() => {
+        setShow(false);
+      }, 700);
+      return () => clearTimeout(removeTimer);
+    }, minDisplayMs);
+
+    return () => clearTimeout(timer);
+  }, [minDisplayMs]);
+
+  if (!show) return null;
+
+  return (
+    <div
+      className={cn(
+        "fixed inset-0 z-[999] transition-opacity duration-700 ease-out pointer-events-auto",
+        fading && "opacity-0 pointer-events-none",
+      )}
+    >
+      <SiteLoadingScreen hasError={false} />
     </div>
   );
 }

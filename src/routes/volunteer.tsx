@@ -8,13 +8,38 @@ import { volunteerInterests } from "@/lib/site";
 export const Route = createFileRoute("/volunteer")({
   head: () => ({
     meta: [
-      { title: "Volunteer — Trinetra Foundation" },
-      { name: "description", content: "Join Trinetra Foundation as a volunteer in education, food distribution, healthcare, environment, animal welfare or disaster relief." },
-      { property: "og:title", content: "Volunteer — Trinetra Foundation" },
-      { property: "og:description", content: "Give time and skills to community programmes in Araria, Bihar." },
-      { property: "og:url", content: "/volunteer" },
+      { title: "Volunteer With Us — Trinetra Foundation | Youth & Field Volunteers Bihar" },
+      {
+        name: "description",
+        content:
+          "Join Trinetra Foundation as an on-ground or remote volunteer. Contribute your skills to food relief, teaching children, healthcare drives, tree plantations, and animal rescue in Bihar.",
+      },
+      { property: "og:title", content: "Volunteer With Us — Trinetra Foundation" },
+      {
+        property: "og:description",
+        content: "Give your time, energy, and skills to grassroots empowerment in Forbesganj & Araria.",
+      },
+      { property: "og:url", content: "https://trinetrafoundation.org/volunteer" },
+      { property: "og:image", content: "https://trinetrafoundation.org/trinetra-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Volunteer With Trinetra Foundation" },
+      { name: "twitter:description", content: "Make a direct grassroots impact in Bihar." },
     ],
-    links: [{ rel: "canonical", href: "/volunteer" }],
+    links: [{ rel: "canonical", href: "https://trinetrafoundation.org/volunteer" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Volunteer with Trinetra Foundation",
+          url: "https://trinetrafoundation.org/volunteer",
+          publisher: {
+            "@id": "https://trinetrafoundation.org/#organization",
+          },
+        }),
+      },
+    ],
   }),
   component: VolunteerPage,
 });

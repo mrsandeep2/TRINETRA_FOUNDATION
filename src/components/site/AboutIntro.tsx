@@ -67,8 +67,8 @@ export function AboutIntro() {
         ty: Math.sin(angle) * distance - 20,
         rot: (Math.random() - 0.5) * 90,
         scale: 0.8 + Math.random() * 0.9,
-        emoji: emojis[Math.floor(Math.random() * emojis.length)],
-        color: colors[Math.floor(Math.random() * colors.length)],
+        emoji: emojis[Math.floor(Math.random() * emojis.length)] || "❤️",
+        color: colors[Math.floor(Math.random() * colors.length)] || "#ef4444",
       };
     });
 
