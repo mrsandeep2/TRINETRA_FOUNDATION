@@ -3,6 +3,8 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const campaignsQuery = queryOptions({
   queryKey: ["campaigns"],
+  staleTime: 10 * 60 * 1000,
+  gcTime: 60 * 60 * 1000,
   queryFn: async () => {
     const { data, error } = await supabase
       .from("campaigns")
@@ -17,6 +19,8 @@ export const campaignsQuery = queryOptions({
 
 export const storiesQuery = queryOptions({
   queryKey: ["stories"],
+  staleTime: 10 * 60 * 1000,
+  gcTime: 60 * 60 * 1000,
   queryFn: async () => {
     const { data, error } = await supabase
       .from("stories")
@@ -30,6 +34,8 @@ export const storiesQuery = queryOptions({
 
 export const eventsQuery = queryOptions({
   queryKey: ["events"],
+  staleTime: 10 * 60 * 1000,
+  gcTime: 60 * 60 * 1000,
   queryFn: async () => {
     const { data, error } = await supabase
       .from("events")
@@ -43,6 +49,8 @@ export const eventsQuery = queryOptions({
 
 export const metricsQuery = queryOptions({
   queryKey: ["impact_metrics"],
+  staleTime: 10 * 60 * 1000,
+  gcTime: 60 * 60 * 1000,
   queryFn: async () => {
     const { data, error } = await supabase
       .from("impact_metrics")
@@ -56,6 +64,8 @@ export const metricsQuery = queryOptions({
 
 export const documentsQuery = queryOptions({
   queryKey: ["documents"],
+  staleTime: 10 * 60 * 1000,
+  gcTime: 60 * 60 * 1000,
   queryFn: async () => {
     const { data, error } = await supabase
       .from("documents")
