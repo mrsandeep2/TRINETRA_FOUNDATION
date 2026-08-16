@@ -218,7 +218,7 @@ export function HeroSplit() {
   const drawOffset = 1000 - (progress / 100) * 1000;
 
   return (
-    <section className="relative w-full flex flex-col justify-start lg:justify-between pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-12 lg:pb-5 lg:h-[100svh] lg:min-h-[660px] lg:max-h-[1050px] lg:overflow-hidden bg-gradient-to-b from-[#fdfbf7] via-[#f8f3ec] to-[#f4ece0] dark:from-[#070c18] dark:via-[#0b1222] dark:to-[#060a14]">
+    <section className="relative w-full max-w-full overflow-hidden flex flex-col justify-start lg:justify-between pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-12 lg:pb-5 lg:h-[100svh] lg:min-h-[660px] lg:max-h-[1050px] bg-gradient-to-b from-[#fdfbf7] via-[#f8f3ec] to-[#f4ece0] dark:from-[#070c18] dark:via-[#0b1222] dark:to-[#060a14]">
       {/* Ambient Glowing Energy Mesh */}
       <div className="pointer-events-none absolute -top-32 -left-32 h-[34rem] w-[34rem] rounded-full bg-primary/20 blur-[130px] animate-[pulse_8s_ease-in-out_infinite]" />
       <div className="pointer-events-none absolute top-1/4 -right-32 h-[30rem] w-[30rem] rounded-full bg-amber-500/15 blur-[120px] animate-[pulse_10s_ease-in-out_infinite]" />
@@ -227,7 +227,7 @@ export function HeroSplit() {
       {/* Cyber-Mesh Background Grid */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#ea580c_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.1]" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-between">
+      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 w-full max-w-full flex-1 flex flex-col justify-between">
         {/* TOP HUD ROW: RADAR STATUS CAPSULE + DYNAMIC CAUSE SWITCHER */}
         <div className="flex flex-wrap items-center justify-between gap-2.5 shrink-0 mb-3 pt-1 sm:pt-0">
           {/* Section 8 Radar Beacon */}
@@ -423,7 +423,7 @@ export function HeroSplit() {
                 triggerCardInteraction();
               }
             }}
-            className="relative mx-auto w-full max-w-[22rem] sm:max-w-[26rem] lg:max-w-[34rem] mt-6 sm:mt-8 lg:mt-0 cursor-pointer select-none perspective-[1000px] transform-gpu"
+            className="relative mx-auto w-full max-w-full sm:max-w-[26rem] lg:max-w-[34rem] mt-6 sm:mt-8 lg:mt-0 cursor-pointer select-none perspective-[1000px] transform-gpu"
           >
             {/* CONTINUOUS DRAWING BORDER LIGHT CIRCLE (ANCHORED AT START POINT) */}
             <svg

@@ -54,10 +54,10 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-full overflow-x-clip">
       <HeroSplit />
       <AboutIntro />
-      <div className="relative z-10 bg-background">
+      <div className="relative z-10 bg-background w-full max-w-full overflow-x-clip">
         <Marquee
           items={[
             { text: "Love & Humanitarian Care", emoji: "❤️", badge: "Core", color: "from-rose-500/15 to-pink-500/10 text-rose-600 dark:text-rose-400 border-rose-500/20" },

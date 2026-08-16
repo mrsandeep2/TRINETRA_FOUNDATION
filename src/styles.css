@@ -289,6 +289,8 @@
 
   .marquee-mask {
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
     mask-image: linear-gradient(to right,
         transparent,
         black 5%,
@@ -498,15 +500,37 @@
 }
 
 @layer base {
-  * {
+  *,
+  *::before,
+  *::after {
     border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    position: relative;
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
   }
 
   h1,
@@ -516,10 +540,6 @@
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: -0.02em;
-  }
-
-  html {
-    scroll-behavior: smooth;
   }
 
   @media (prefers-reduced-motion: reduce) {
