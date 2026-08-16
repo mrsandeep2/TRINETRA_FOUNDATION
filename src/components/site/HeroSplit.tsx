@@ -218,7 +218,7 @@ export function HeroSplit() {
   const drawOffset = 1000 - (progress / 100) * 1000;
 
   return (
-    <section className="relative w-full max-w-full overflow-hidden flex flex-col justify-start lg:justify-between pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-12 lg:pb-5 lg:h-[100svh] lg:min-h-[660px] lg:max-h-[1050px] bg-gradient-to-b from-[#fdfbf7] via-[#f8f3ec] to-[#f4ece0] dark:from-[#070c18] dark:via-[#0b1222] dark:to-[#060a14]">
+    <section className="relative w-full max-w-full overflow-x-clip flex flex-col justify-start lg:justify-between pt-20 sm:pt-24 lg:pt-24 xl:pt-28 pb-8 sm:pb-12 lg:pb-3 xl:pb-4 lg:h-[100svh] lg:min-h-[640px] lg:max-h-[100svh] bg-gradient-to-b from-[#fdfbf7] via-[#f8f3ec] to-[#f4ece0] dark:from-[#070c18] dark:via-[#0b1222] dark:to-[#060a14]">
       {/* Ambient Glowing Energy Mesh */}
       <div className="pointer-events-none absolute -top-32 -left-32 h-[34rem] w-[34rem] rounded-full bg-primary/20 blur-[130px] animate-[pulse_8s_ease-in-out_infinite]" />
       <div className="pointer-events-none absolute top-1/4 -right-32 h-[30rem] w-[30rem] rounded-full bg-amber-500/15 blur-[120px] animate-[pulse_10s_ease-in-out_infinite]" />
@@ -227,9 +227,9 @@ export function HeroSplit() {
       {/* Cyber-Mesh Background Grid */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(#ea580c_0.75px,transparent_0.75px)] [background-size:24px_24px] opacity-[0.06] dark:opacity-[0.1]" />
 
-      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 w-full max-w-full flex-1 flex flex-col justify-between">
+      <div className="relative mx-auto max-w-7xl px-3.5 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-between">
         {/* TOP HUD ROW: RADAR STATUS CAPSULE + DYNAMIC CAUSE SWITCHER */}
-        <div className="flex flex-wrap items-center justify-between gap-2.5 shrink-0 mb-3 pt-1 sm:pt-0">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 shrink-0 mb-1.5 lg:mb-2 pt-1 sm:pt-0">
           {/* Section 8 Radar Beacon */}
           <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-primary/30 bg-white/80 dark:bg-white/5 px-3 sm:px-4 py-1 sm:py-1.5 shadow-[0_10px_25px_-8px_rgba(234,88,12,0.2)] backdrop-blur-2xl">
             <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
@@ -284,11 +284,11 @@ export function HeroSplit() {
         </div>
 
         {/* CENTER STAGE: ROCK-SOLID ZERO-SHIFT GRID */}
-        <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[1.12fr_0.88fr] lg:gap-12 flex-1 my-auto">
+        <div className="grid items-center gap-5 sm:gap-8 lg:grid-cols-[1.12fr_0.88fr] lg:gap-10 xl:gap-12 flex-1 my-auto">
           {/* LEFT: GRAND TYPOGRAPHY & COMMAND CONSOLE */}
           <div className="flex flex-col justify-center">
             {/* Priority Mission Badge */}
-            <div className="flex items-center gap-2 mb-2 sm:mb-2.5">
+            <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
               <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 sm:px-3 py-0.5 text-[11px] sm:text-xs font-bold tracking-wider text-primary border border-primary/25">
                 <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                 {activePillar.badge}
@@ -300,8 +300,8 @@ export function HeroSplit() {
             </div>
 
             {/* Stable Height Headline Box */}
-            <div className="min-h-[4.2rem] sm:min-h-[6.4rem] lg:min-h-[7rem] flex flex-col justify-center">
-              <h1 className="font-display text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] font-extrabold tracking-tight text-navy dark:text-white leading-[1.08]">
+            <div className="min-h-[4.2rem] sm:min-h-[5.8rem] lg:min-h-[6.2rem] xl:min-h-[6.8rem] flex flex-col justify-center">
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-[2.65rem] xl:text-[3.25rem] 2xl:text-[3.6rem] font-extrabold tracking-tight text-navy dark:text-white leading-[1.08]">
                 {activePillar.title}{" "}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#ea580c] to-[#d97706]">
                   {activePillar.accent}
@@ -310,16 +310,16 @@ export function HeroSplit() {
             </div>
 
             {/* Stable Height Narrative Box */}
-            <div className="mt-1.5 sm:mt-2.5 min-h-[2.5rem] lg:min-h-[3.25rem] flex items-center">
-              <p className="max-w-xl text-xs sm:text-sm sm:text-base leading-relaxed text-muted-foreground dark:text-muted-foreground/90 line-clamp-2">
+            <div className="mt-1 sm:mt-2 min-h-[2.2rem] lg:min-h-[2.6rem] flex items-center">
+              <p className="max-w-xl text-xs sm:text-sm lg:text-[0.92rem] leading-relaxed text-muted-foreground dark:text-muted-foreground/90 line-clamp-2">
                 {activePillar.body}
               </p>
             </div>
 
             {/* 2035 HORIZONTAL COMMAND CONSOLE */}
-            <div className="mt-3 sm:mt-4 rounded-3xl border border-white/80 dark:border-white/10 bg-white/80 dark:bg-white/5 p-3.5 sm:p-5 shadow-[0_20px_50px_-20px_rgba(20,28,50,0.15)] backdrop-blur-2xl">
+            <div className="mt-2.5 sm:mt-3.5 rounded-3xl border border-white/80 dark:border-white/10 bg-white/80 dark:bg-white/5 p-3 sm:p-4 lg:p-4.5 shadow-[0_20px_50px_-20px_rgba(20,28,50,0.15)] backdrop-blur-2xl">
               {/* Preset Matrix Header */}
-              <div className="flex items-center justify-between mb-2 sm:mb-3">
+              <div className="flex items-center justify-between mb-1.5 sm:mb-2.5">
                 <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-navy dark:text-white flex items-center gap-1.5">
                   <Zap className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-primary" /> Instant Support Console
                 </span>
@@ -344,7 +344,7 @@ export function HeroSplit() {
                           : "bg-accent/50 dark:bg-white/5 text-navy dark:text-white hover:bg-accent hover:scale-102 border border-border/60",
                       )}
                     >
-                      <span className="font-display text-sm sm:text-base lg:text-lg font-bold leading-tight">
+                      <span className="font-display text-sm sm:text-base lg:text-base xl:text-lg font-bold leading-tight">
                         ₹{chip.amount.toLocaleString("en-IN")}
                       </span>
                       <span
@@ -361,12 +361,12 @@ export function HeroSplit() {
               </div>
 
               {/* Unified Action Dock */}
-              <div className="mt-3 sm:mt-4 flex flex-wrap items-center gap-2 sm:gap-3">
+              <div className="mt-2.5 sm:mt-3.5 flex flex-wrap items-center gap-2 sm:gap-2.5">
                 {/* Donate CTA with Selected Amount */}
                 <Link
                   to="/donate"
                   search={{ amount: selectedAmount }}
-                  className="group flex-1 min-w-[150px] inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary via-[#ea580c] to-[#d97706] px-4 sm:px-6 py-2.5 sm:py-3.5 text-xs font-bold tracking-[0.14em] text-white uppercase shadow-[0_12px_28px_-6px_rgba(234,88,12,0.5)] transition-all duration-300 hover:scale-105 active:scale-95"
+                  className="group flex-1 min-w-[130px] sm:min-w-[150px] inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary via-[#ea580c] to-[#d97706] px-4 sm:px-5 py-2.5 sm:py-3 text-xs font-bold tracking-[0.12em] text-white uppercase shadow-[0_10px_24px_-4px_rgba(234,88,12,0.45)] transition-all duration-300 hover:scale-105 active:scale-95"
                 >
                   <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-white transition-transform group-hover:scale-125" />
                   <span>Donate ₹{selectedAmount.toLocaleString("en-IN")}</span>
@@ -376,7 +376,7 @@ export function HeroSplit() {
                 {/* Volunteer Action */}
                 <Link
                   to="/volunteer"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-navy/30 dark:border-white/20 bg-white/70 dark:bg-white/5 px-4 sm:px-5 py-2.5 sm:py-3.5 text-xs font-bold tracking-[0.12em] text-navy dark:text-white uppercase transition-all duration-200 hover:bg-navy hover:text-white hover:border-navy"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-navy/30 dark:border-white/20 bg-white/70 dark:bg-white/5 px-3.5 sm:px-4.5 py-2.5 sm:py-3 text-xs font-bold tracking-[0.1em] text-navy dark:text-white uppercase transition-all duration-200 hover:bg-navy hover:text-white hover:border-navy"
                 >
                   Volunteer
                 </Link>
@@ -384,10 +384,10 @@ export function HeroSplit() {
                 {/* Direct Phone Helpline */}
                 <a
                   href={`tel:${org.phone}`}
-                  className="hidden sm:flex items-center gap-2 rounded-full bg-card px-3.5 py-2.5 sm:px-4 sm:py-3 text-xs font-bold text-navy shadow-xs ring-1 ring-border/80 hover:bg-accent transition-colors"
+                  className="hidden sm:flex items-center gap-1.5 rounded-full bg-card px-3 sm:px-3.5 py-2.5 sm:py-3 text-xs font-bold text-navy shadow-xs ring-1 ring-border/80 hover:bg-accent transition-colors"
                   title="Call Trinetra Helpline"
                 >
-                  <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <span className="flex h-5 w-5 sm:h-5.5 sm:w-5.5 items-center justify-center rounded-full bg-primary/10 text-primary">
                     <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                   </span>
                   <span className="font-mono text-xs">{org.phone}</span>
@@ -423,7 +423,7 @@ export function HeroSplit() {
                 triggerCardInteraction();
               }
             }}
-            className="relative mx-auto w-full max-w-full sm:max-w-[26rem] lg:max-w-[34rem] mt-6 sm:mt-8 lg:mt-0 cursor-pointer select-none perspective-[1000px] transform-gpu"
+            className="relative mx-auto w-full max-w-[22.5rem] sm:max-w-[26rem] lg:max-w-[28rem] xl:max-w-[32rem] mt-6 sm:mt-8 lg:mt-0 cursor-pointer select-none perspective-[1000px] transform-gpu"
           >
             {/* CONTINUOUS DRAWING BORDER LIGHT CIRCLE (ANCHORED AT START POINT) */}
             <svg
@@ -532,7 +532,7 @@ export function HeroSplit() {
             {/* Inner Frosted Card Container */}
             <div
               className={cn(
-                "relative rounded-[3rem] p-3 sm:p-4 border border-white/90 dark:border-white/15 bg-white/60 dark:bg-white/5 shadow-2xl backdrop-blur-3xl transition-all duration-300",
+                "relative rounded-[2.5rem] sm:rounded-[3rem] p-2.5 sm:p-3.5 border border-white/90 dark:border-white/15 bg-white/60 dark:bg-white/5 shadow-2xl backdrop-blur-3xl transition-all duration-300",
                 isCardHovered
                   ? "scale-[1.03] shadow-[0_30px_70px_-15px_rgba(234,88,12,0.35)]"
                   : "scale-100 shadow-[0_25px_60px_-20px_rgba(20,28,50,0.2)]",
@@ -544,7 +544,7 @@ export function HeroSplit() {
               }}
             >
               {/* Media Window - 100% Constant Height Across All 5 Slides */}
-              <div className="relative aspect-[4/3.3] sm:aspect-[4/3.4] lg:aspect-[4/3.2] h-[340px] sm:h-[380px] lg:h-[420px] w-full overflow-hidden rounded-[2.5rem] bg-navy/10 shadow-inner">
+              <div className="relative aspect-[4/3.4] sm:aspect-[4/3.4] lg:aspect-[4/3.1] h-[310px] sm:h-[340px] lg:h-[310px] xl:h-[360px] w-full overflow-hidden rounded-[2.25rem] bg-navy/10 shadow-inner">
                 {heroPillars.map((pillar, idx) => (
                   <img
                     key={pillar.id}
@@ -620,7 +620,7 @@ export function HeroSplit() {
                 </div>
 
                 {/* FLOATING BOTTOM SPOTLIGHT CARD */}
-                <div className="absolute inset-x-3.5 bottom-3.5 rounded-3xl border border-white/30 bg-white/90 dark:bg-[#0c1424]/90 p-3.5 sm:p-4 shadow-xl backdrop-blur-2xl z-20 transition-transform duration-300 hover:scale-102">
+                <div className="absolute inset-x-2.5 sm:inset-x-3.5 bottom-2.5 sm:bottom-3.5 rounded-2xl sm:rounded-3xl border border-white/30 bg-white/90 dark:bg-[#0c1424]/90 p-2.5 sm:p-3.5 shadow-xl backdrop-blur-2xl z-20 transition-transform duration-300 hover:scale-102">
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="text-[10px] font-bold tracking-wider text-primary uppercase flex items-center gap-1">
