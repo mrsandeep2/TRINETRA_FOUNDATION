@@ -1,4 +1,4 @@
 # Trinetra Foundation Redirects Configuration
-# 301 Redirect secondary domain (.site) to primary canonical domain (.in)
-https://trinetrafoundation.site/* https://trinetrafoundation.in/:splat 301!
-http://trinetrafoundation.site/* https://trinetrafoundation.in/:splat 301!
+# Primary: https://trinetrafoundation.in/
+# Secondary / Backup Failover Domain: https://trinetrafoundation.site/
+# Both domains serve the active website. Canonical SEO tags point to .in to prevent duplicate indexing.
