@@ -74,6 +74,7 @@ const categories = ["All Sectors", "Education", "Relief", "Healthcare", "Environ
 function ImpactPage() {
   const { data: dbMetrics } = useQuery(metricsQuery);
   const [selectedCat, setSelectedCat] = useState("All Sectors");
+  const [calcDonation, setCalcDonation] = useState(2500);
   const rawMetrics = (dbMetrics && dbMetrics.length > 0 ? dbMetrics : defaultMetrics).map((m: any, idx: number) => {
     const rawVal = Number(m.value);
     const validVal = !isNaN(rawVal) && rawVal > 0 ? rawVal : defaultMetrics[idx]?.value || 100;

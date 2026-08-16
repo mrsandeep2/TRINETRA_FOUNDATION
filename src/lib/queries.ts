@@ -6,14 +6,22 @@ export const campaignsQuery = queryOptions({
   staleTime: 10 * 60 * 1000,
   gcTime: 60 * 60 * 1000,
   queryFn: async () => {
-    const { data, error } = await supabase
-      .from("campaigns")
-      .select("*")
-      .eq("is_published", true)
-      .order("is_featured", { ascending: false })
-      .order("created_at", { ascending: true });
-    if (error) throw error;
-    return data;
+    try {
+      const { data, error } = await supabase
+        .from("campaigns")
+        .select("*")
+        .eq("is_published", true)
+        .order("is_featured", { ascending: false })
+        .order("created_at", { ascending: true });
+      if (error) {
+        console.warn("Could not load campaigns:", error);
+        return [];
+      }
+      return data ?? [];
+    } catch (err) {
+      console.warn("Campaigns query exception:", err);
+      return [];
+    }
   },
 });
 
@@ -22,13 +30,21 @@ export const storiesQuery = queryOptions({
   staleTime: 10 * 60 * 1000,
   gcTime: 60 * 60 * 1000,
   queryFn: async () => {
-    const { data, error } = await supabase
-      .from("stories")
-      .select("*")
-      .eq("is_published", true)
-      .order("published_at", { ascending: false });
-    if (error) throw error;
-    return data;
+    try {
+      const { data, error } = await supabase
+        .from("stories")
+        .select("*")
+        .eq("is_published", true)
+        .order("published_at", { ascending: false });
+      if (error) {
+        console.warn("Could not load stories:", error);
+        return [];
+      }
+      return data ?? [];
+    } catch (err) {
+      console.warn("Stories query exception:", err);
+      return [];
+    }
   },
 });
 
@@ -37,13 +53,21 @@ export const eventsQuery = queryOptions({
   staleTime: 10 * 60 * 1000,
   gcTime: 60 * 60 * 1000,
   queryFn: async () => {
-    const { data, error } = await supabase
-      .from("events")
-      .select("*")
-      .eq("is_published", true)
-      .order("starts_at", { ascending: true });
-    if (error) throw error;
-    return data;
+    try {
+      const { data, error } = await supabase
+        .from("events")
+        .select("*")
+        .eq("is_published", true)
+        .order("starts_at", { ascending: true });
+      if (error) {
+        console.warn("Could not load events:", error);
+        return [];
+      }
+      return data ?? [];
+    } catch (err) {
+      console.warn("Events query exception:", err);
+      return [];
+    }
   },
 });
 
@@ -52,13 +76,21 @@ export const metricsQuery = queryOptions({
   staleTime: 10 * 60 * 1000,
   gcTime: 60 * 60 * 1000,
   queryFn: async () => {
-    const { data, error } = await supabase
-      .from("impact_metrics")
-      .select("*")
-      .eq("is_published", true)
-      .order("sort_order", { ascending: true });
-    if (error) throw error;
-    return data;
+    try {
+      const { data, error } = await supabase
+        .from("impact_metrics")
+        .select("*")
+        .eq("is_published", true)
+        .order("sort_order", { ascending: true });
+      if (error) {
+        console.warn("Could not load impact_metrics:", error);
+        return [];
+      }
+      return data ?? [];
+    } catch (err) {
+      console.warn("Impact metrics query exception:", err);
+      return [];
+    }
   },
 });
 
@@ -67,13 +99,21 @@ export const documentsQuery = queryOptions({
   staleTime: 10 * 60 * 1000,
   gcTime: 60 * 60 * 1000,
   queryFn: async () => {
-    const { data, error } = await supabase
-      .from("documents")
-      .select("*")
-      .eq("is_published", true)
-      .order("published_at", { ascending: false });
-    if (error) throw error;
-    return data;
+    try {
+      const { data, error } = await supabase
+        .from("documents")
+        .select("*")
+        .eq("is_published", true)
+        .order("published_at", { ascending: false });
+      if (error) {
+        console.warn("Could not load documents:", error);
+        return [];
+      }
+      return data ?? [];
+    } catch (err) {
+      console.warn("Documents query exception:", err);
+      return [];
+    }
   },
 });
 
