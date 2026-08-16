@@ -19,6 +19,11 @@ export function Reveal({ children, delay = 0, y = 20, className }: RevealProps) 
       return;
     }
 
+    if (typeof IntersectionObserver === "undefined") {
+      node.classList.add("reveal-visible");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
@@ -26,11 +31,22 @@ export function Reveal({ children, delay = 0, y = 20, className }: RevealProps) 
         node.classList.add("reveal-visible");
         observer.disconnect();
       },
-      { rootMargin: "-60px", threshold: 0.01 },
+      { rootMargin: "80px 0px", threshold: 0.01 },
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+
+    // Failsafe timer: Ensure content is ALWAYS made visible after mount even if observer is delayed
+    const timer = setTimeout(() => {
+      if (node && !node.classList.contains("reveal-visible")) {
+        node.classList.add("reveal-visible");
+      }
+    }, 350 + delay * 1000);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
   }, [delay]);
 
   return (

@@ -77,14 +77,32 @@ function ImpactPage() {
   const rawMetrics = (dbMetrics && dbMetrics.length > 0 ? dbMetrics : defaultMetrics).map((m: any, idx: number) => {
     const rawVal = Number(m.value);
     const validVal = !isNaN(rawVal) && rawVal > 0 ? rawVal : defaultMetrics[idx]?.value || 100;
+    const assignedCategory =
+      m.category ||
+      defaultMetrics[idx]?.category ||
+      (m.label?.toLowerCase().includes("meal") || m.label?.toLowerCase().includes("food")
+        ? "Relief"
+        : m.label?.toLowerCase().includes("student") || m.label?.toLowerCase().includes("children")
+        ? "Education"
+        : m.label?.toLowerCase().includes("health") || m.label?.toLowerCase().includes("camp")
+        ? "Healthcare"
+        : m.label?.toLowerCase().includes("tree") || m.label?.toLowerCase().includes("plant")
+        ? "Environment"
+        : m.label?.toLowerCase().includes("animal") || m.label?.toLowerCase().includes("gaushala")
+        ? "Animal Welfare"
+        : "Livelihood");
+
     return {
-      ...m,
+      id: m.id || defaultMetrics[idx]?.id || `metric-${idx}`,
+      label: m.label || defaultMetrics[idx]?.label,
+      unit: m.unit || defaultMetrics[idx]?.unit || "",
+      category: assignedCategory,
       value: validVal,
     };
   });
 
   const filteredMetrics = rawMetrics.filter((m: any) => {
-    if (selectedCat === "All Sectors") return true;
+    if (!selectedCat || selectedCat === "All Sectors") return true;
     return m.category?.toLowerCase() === selectedCat.toLowerCase();
   });
 
@@ -100,7 +118,7 @@ function ImpactPage() {
       <section className="relative z-10 -mt-16 pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Dynamic Metrics Category Pills */}
-          <div className="surface-lift mb-8 flex items-center justify-between gap-4 overflow-x-auto bg-white/90 dark:bg-[#0c1424]/90 p-4 sm:p-5 shadow-xl backdrop-blur-2xl border border-white/70 scrollbar-none">
+          <div className="surface-lift mb-8 flex items-center justify-between gap-4 overflow-x-auto bg-white/90 dark:bg-[#0c1424]/90 p-4 sm:p-5 shadow-xl backdrop-blur-2xl border border-white/70 scrollbar-none rounded-3xl">
             <div className="flex items-center gap-1.5 shrink-0">
               <BarChart3 className="h-4 w-4 text-primary" />
               <span className="text-xs font-bold text-navy uppercase tracking-wider">Telemetry View:</span>
@@ -125,7 +143,7 @@ function ImpactPage() {
           </div>
 
           {/* Dynamic Live Counter Grid */}
-          <Reveal className="surface-lift bg-card p-6 sm:p-12 shadow-xl border border-border/60">
+          <div className="surface-lift bg-card p-6 sm:p-12 shadow-xl border border-border/60 rounded-[2.5rem]">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {filteredMetrics.map((metric: any, i: number) => (
                 <Reveal key={metric.id} delay={0.04 * i}>
@@ -153,7 +171,7 @@ function ImpactPage() {
                 </Reveal>
               ))}
             </div>
-          </Reveal>
+          </div>
 
           {/* INTERACTIVE 2035 IMPACT MULTIPLIER CALCULATOR */}
           <div className="mt-12 surface-lift rounded-[2.5rem] bg-gradient-to-br from-navy via-[#101a35] to-[#0c1424] p-8 sm:p-12 text-white shadow-2xl">
