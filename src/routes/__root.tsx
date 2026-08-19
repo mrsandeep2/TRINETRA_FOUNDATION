@@ -131,6 +131,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 "Trinetra Foundation Bihar",
                 "Trinetra Foundation Forbesganj",
                 "Trinetra Foundation Araria",
+                "Trinetra Foundation 854318",
+                "Trinetra NGO Block Road TV Centre",
               ],
               url: "https://trinetrafoundation.in",
               logo: {
@@ -142,7 +144,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               },
               image: "https://trinetrafoundation.in/trinetra-logo.png",
               description:
-                "Trinetra Foundation is a Section 8 registered non-profit company (CIN: U88900BR2026NPL084393) headquartered in Forbesganj, Araria, Bihar, dedicated to community welfare across education, nutrition, healthcare camps, animal care, and environmental sustainability.",
+                "Trinetra Foundation is a Section 8 registered non-profit company (CIN: U88900BR2026NPL084393) headquartered at TV Centre, Block Road, Forbesganj (Araria) 854318, Bihar, India, dedicated to community welfare across education, nutrition, healthcare camps, animal care, and environmental sustainability.",
               taxID: "U88900BR2026NPL084393",
               nonprofitStatus: "Nonprofit501c3",
               foundingDate: "2026",
@@ -166,6 +168,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 postalCode: "854318",
                 addressCountry: "IN",
               },
+              hasMap: "https://maps.google.com/?q=TV+Centre,+Block+Road,+Forbesganj+854318+Bihar",
               geo: {
                 "@type": "GeoCoordinates",
                 latitude: 26.3015,
@@ -173,8 +176,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               },
               areaServed: [
                 {
+                  "@type": "PostalAddress",
+                  postalCode: "854318",
+                  addressLocality: "Forbesganj",
+                  addressRegion: "Bihar",
+                  addressCountry: "IN",
+                },
+                {
                   "@type": "City",
                   name: "Forbesganj",
+                  postalCode: "854318",
                 },
                 {
                   "@type": "AdministrativeArea",

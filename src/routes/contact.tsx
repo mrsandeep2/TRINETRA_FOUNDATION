@@ -9,23 +9,28 @@ import { org } from "@/lib/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Trinetra Foundation Office — TV Centre, Block Road, Forbesganj, Araria, Bihar" },
+      { title: "Contact Trinetra Foundation Office — TV Centre, Block Road, Forbesganj (Araria) 854318, Bihar" },
       {
         name: "description",
         content:
-          "Visit or contact Trinetra Foundation head office at TV Centre, Block Road, Forbesganj, Araria, Bihar 854318. Phone: +91 7562891937, Email: trinetrafoundationofficially@gmail.com.",
+          "Visit or contact Trinetra Foundation head office at TV Centre, Block Road, Forbesganj (Araria) 854318, Bihar. Phone: +91 7562891937, Email: trinetrafoundationofficially@gmail.com.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Trinetra Foundation Contact, TV Centre Block Road Forbesganj, Block Road Forbesganj 854318, NGO Forbesganj 854318, NGO near 854318, Trinetra Foundation phone number, Trinetra NGO office address Forbesganj Bihar",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "Contact Trinetra Foundation — Head Office Forbesganj, Bihar" },
+      { property: "og:title", content: "Contact Trinetra Foundation — TV Centre, Block Road, Forbesganj 854318" },
       {
         property: "og:description",
-        content: "Get in touch with Trinetra Foundation in Forbesganj, Araria, Bihar for programmes, donations, CSR, or volunteering.",
+        content: "Get in touch with Trinetra Foundation at TV Centre, Block Road, Forbesganj (Araria) 854318, Bihar for programmes, donations, CSR, or volunteering.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/contact" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Contact Trinetra Foundation (Forbesganj, Araria, Bihar)" },
+      { name: "twitter:title", content: "Contact Trinetra Foundation (Forbesganj 854318, Bihar)" },
       { name: "twitter:description", content: "TV Centre, Block Road, Forbesganj, Araria, Bihar 854318. Call +91 7562891937." },
       { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],

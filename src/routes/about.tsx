@@ -6,24 +6,29 @@ import { images, org, values, workAreas } from "@/lib/site";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Trinetra Foundation | Section 8 NGO Forbesganj, Araria, Bihar" },
+      { title: "About Us — Trinetra Foundation | Section 8 NGO Forbesganj (Araria) 854318, Bihar" },
       {
         name: "description",
         content:
-          "Learn about Trinetra Foundation, a registered Section 8 NGO founded by Er. Abhishek Kumar Singh & Er. Abhinash Sahu in Forbesganj, Araria, Bihar dedicated to grassroots welfare, education, healthcare, and relief.",
+          "Learn about Trinetra Foundation, a registered Section 8 NGO based at TV Centre, Block Road, Forbesganj (Araria) 854318, Bihar founded by Er. Abhishek Kumar Singh & Er. Abhinash Sahu for grassroots welfare.",
+      },
+      {
+        name: "keywords",
+        content:
+          "About Trinetra Foundation, NGO in Forbesganj 854318, Section 8 NGO Bihar, TV Centre Block Road Forbesganj, Er Abhishek Kumar Singh, Er Abhinash Sahu, NGO near 854318, NGO Araria Bihar",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "About Us — Trinetra Foundation | Section 8 NGO Forbesganj, Bihar" },
+      { property: "og:title", content: "About Us — Trinetra Foundation | Section 8 NGO Forbesganj (Araria) 854318" },
       {
         property: "og:description",
-        content: "Our mission, vision, values, leadership, and governance as a registered Section 8 non-profit in Forbesganj, Araria, Bihar.",
+        content: "Our mission, vision, values, leadership, and governance as a registered Section 8 non-profit at TV Centre, Block Road, Forbesganj 854318, Bihar.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/about" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "About Us — Trinetra Foundation (Forbesganj, Bihar)" },
-      { name: "twitter:description", content: "Our mission, vision, leadership and governance in Forbesganj, Araria, Bihar." },
+      { name: "twitter:title", content: "About Us — Trinetra Foundation (Forbesganj 854318, Bihar)" },
+      { name: "twitter:description", content: "Our mission, vision, leadership and governance in Forbesganj (Araria) 854318, Bihar." },
       { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/about" }],
