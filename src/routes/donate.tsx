@@ -17,24 +17,25 @@ export const Route = createFileRoute("/donate")({
   },
   head: () => ({
     meta: [
-      { title: "Donate Online — Trinetra Foundation | 80G Tax Deductible NGO Bihar" },
+      { title: "Donate to NGO in Bihar — Trinetra Foundation | 80G Tax Deductible NGO Forbesganj" },
       {
         name: "description",
         content:
-          "Make a tax-deductible donation to Trinetra Foundation. Support food relief, STEM education, free health camps, and gaushala animal care in Bihar with 80G receipts.",
+          "Make a tax-deductible donation to Trinetra Foundation in Forbesganj, Araria, Bihar. Support food relief, STEM child education, free health camps, and gaushala animal care with 80G receipts.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "Donate Online — Trinetra Foundation | 80G Certified" },
+      { property: "og:title", content: "Donate Online — Trinetra Foundation | 80G Certified NGO Bihar" },
       {
         property: "og:description",
-        content: "Fund transparent community programmes in Bihar with instant digital tax receipts and ground audits.",
+        content: "Fund transparent community programmes in Forbesganj, Araria & Bihar with instant digital tax receipts and ground audits.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/donate" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Donate to Trinetra Foundation" },
-      { name: "twitter:description", content: "100% transparent donation with 80G tax benefit receipt." },
+      { name: "twitter:title", content: "Donate to Trinetra Foundation (Forbesganj, Bihar)" },
+      { name: "twitter:description", content: "100% transparent donation with 80G tax benefit receipt supporting Bihar communities." },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/donate" }],
     scripts: [
@@ -42,13 +43,36 @@ export const Route = createFileRoute("/donate")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "DonateAction",
-          name: "Donate to Trinetra Foundation",
-          recipient: {
-            "@id": "https://trinetrafoundation.in/#organization",
-          },
-          url: "https://trinetrafoundation.in/donate",
-          description: "Online donation supporting education, health, and relief in Bihar with 80G certificate.",
+          "@graph": [
+            {
+              "@type": "DonateAction",
+              "@id": "https://trinetrafoundation.in/donate#action",
+              name: "Donate to Trinetra Foundation",
+              recipient: {
+                "@id": "https://trinetrafoundation.in/#organization",
+              },
+              url: "https://trinetrafoundation.in/donate",
+              description: "Online tax-exempt donation supporting education, health, and hunger relief in Forbesganj, Araria, Bihar with 80G certificate.",
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://trinetrafoundation.in/donate#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://trinetrafoundation.in/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Donate Online",
+                  item: "https://trinetrafoundation.in/donate",
+                },
+              ],
+            },
+          ],
         }),
       },
     ],

@@ -187,7 +187,7 @@ export function AboutIntro() {
                   <div className="relative h-24 w-24 sm:h-32 sm:w-32 rounded-full border-[6px] sm:border-[8px] border-primary bg-white overflow-hidden shadow-xl shrink-0 z-20 transition-transform duration-500 hover:scale-110">
                     <img
                       src={images.students}
-                      alt="Student supported by foundation"
+                      alt="Students learning with Trinetra Foundation in Forbesganj, Bihar"
                       className="h-full w-full object-cover"
                     />
                     <div className="absolute inset-0 bg-primary/10 opacity-0 hover:opacity-100 transition-opacity" />

@@ -33,24 +33,57 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Trinetra Foundation — Serving Humanity, Empowering Communities" },
+      { title: "Trinetra Foundation — Section 8 NGO in Forbesganj, Araria, Bihar | Social Welfare & Relief" },
       {
         name: "description",
         content:
-          "Trinetra Foundation works across education, food, healthcare, livelihood, environment and animal welfare from Forbesganj, Araria, Bihar. Volunteer, partner or donate.",
+          "Trinetra Foundation is a registered Section 8 NGO in Forbesganj, Araria, Bihar working in education, hunger relief, free health camps, gaushala animal welfare, and livelihood empowerment across Bihar.",
+      },
+      {
+        name: "keywords",
+        content:
+          "NGO in Forbesganj, NGO in Araria, NGO in Bihar, Foundation in Bihar, Section 8 NGO Bihar, Education NGO Bihar, Food Relief NGO Forbesganj, Healthcare NGO Araria, Animal Welfare NGO Bihar, Donate NGO Bihar",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "Trinetra Foundation — Serving Humanity, Empowering Communities" },
+      { property: "og:title", content: "Trinetra Foundation — Section 8 NGO in Forbesganj, Araria, Bihar" },
       {
         property: "og:description",
         content:
-          "A Section 8 non-profit building sustainable change through education, health, livelihood and environmental work in Bihar.",
+          "A registered Section 8 NGO building sustainable community change through education, health camps, food relief, and environmental action in Bihar.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Trinetra Foundation — Section 8 NGO in Forbesganj, Araria, Bihar" },
+      {
+        name: "twitter:description",
+        content: "Registered Section 8 NGO empowering communities across Forbesganj, Araria & Bihar.",
+      },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": "https://trinetrafoundation.in/#webpage",
+          url: "https://trinetrafoundation.in/",
+          name: "Trinetra Foundation — Section 8 NGO in Forbesganj, Araria, Bihar",
+          description:
+            "Trinetra Foundation is a registered Section 8 NGO in Forbesganj, Araria, Bihar working in education, hunger relief, free health camps, gaushala animal welfare, and livelihood empowerment.",
+          isPartOf: {
+            "@id": "https://trinetrafoundation.in/#website",
+          },
+          about: {
+            "@id": "https://trinetrafoundation.in/#organization",
+          },
+          inLanguage: "en-IN",
+        }),
+      },
+    ],
   }),
   component: HomePage,
 });

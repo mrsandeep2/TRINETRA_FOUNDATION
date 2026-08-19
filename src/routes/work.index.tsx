@@ -9,24 +9,25 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/work/")({
   head: () => ({
     meta: [
-      { title: "Our 12 Welfare Programmes — Trinetra Foundation | Forbesganj, Bihar" },
+      { title: "12 Welfare Programmes in Bihar — Trinetra Foundation | Forbesganj, Araria" },
       {
         name: "description",
         content:
-          "Explore the 12 comprehensive welfare programmes run by Trinetra Foundation: hunger relief, child education, healthcare clinics, animal gaushala, afforestation, women empowerment, and disaster relief in Bihar.",
+          "Explore the 12 community welfare programmes run by Trinetra Foundation in Forbesganj, Araria & Bihar: child education, hunger relief, free healthcare camps, animal gaushala care, and afforestation.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "Our 12 Welfare Programmes — Trinetra Foundation" },
+      { property: "og:title", content: "12 Welfare Programmes in Bihar — Trinetra Foundation" },
       {
         property: "og:description",
-        content: "Verified social impact across education, healthcare, nutrition, and sustainability in Bihar.",
+        content: "Verified social impact across education, healthcare, food relief, and environment in Forbesganj, Araria, Bihar.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/work" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "12 Welfare Programmes — Trinetra Foundation" },
-      { name: "twitter:description", content: "Grassroots impact across 12 sectors in Forbesganj & Araria district." },
+      { name: "twitter:title", content: "12 Welfare Programmes in Bihar — Trinetra Foundation" },
+      { name: "twitter:description", content: "Grassroots impact across 12 sectors in Forbesganj & Araria district, Bihar." },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/work" }],
     scripts: [
@@ -34,12 +35,41 @@ export const Route = createFileRoute("/work/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          name: "Our 12 Welfare Programmes",
-          url: "https://trinetrafoundation.in/work",
-          publisher: {
-            "@id": "https://trinetrafoundation.in/#organization",
-          },
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://trinetrafoundation.in/work#webpage",
+              name: "Our 12 Welfare Programmes in Bihar",
+              description:
+                "Twelve active social welfare programmes across education, healthcare, food security, animal welfare, and sustainable development by Trinetra Foundation in Forbesganj, Araria, Bihar.",
+              url: "https://trinetrafoundation.in/work",
+              isPartOf: {
+                "@id": "https://trinetrafoundation.in/#website",
+              },
+              publisher: {
+                "@id": "https://trinetrafoundation.in/#organization",
+              },
+              inLanguage: "en-IN",
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://trinetrafoundation.in/work#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://trinetrafoundation.in/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Our Work",
+                  item: "https://trinetrafoundation.in/work",
+                },
+              ],
+            },
+          ],
         }),
       },
     ],

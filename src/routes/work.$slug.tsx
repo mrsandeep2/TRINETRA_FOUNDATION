@@ -17,22 +17,23 @@ export const Route = createFileRoute("/work/$slug")({
     if (!loaderData) {
       return { meta: [{ title: "Programme not found — Trinetra Foundation" }, { name: "robots", content: "noindex" }] };
     }
-    const title = `${loaderData.area.title} — Trinetra Foundation | Forbesganj, Bihar`;
+    const title = `${loaderData.area.title} Programme in Bihar — Trinetra Foundation | Forbesganj, Araria`;
     const fullUrl = `https://trinetrafoundation.in/work/${params.slug}`;
     const imageUrl = loaderData.area.image ? `https://trinetrafoundation.in${loaderData.area.image}` : "https://trinetrafoundation.in/trinetra-logo.png";
+    const description = `${loaderData.area.description || loaderData.area.short} Community welfare initiative by Trinetra Foundation in Forbesganj, Araria district, Bihar.`;
     return {
       meta: [
         { title },
-        { name: "description", content: loaderData.area.description || loaderData.area.short },
+        { name: "description", content: description },
         { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
         { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
         { property: "og:title", content: title },
-        { property: "og:description", content: loaderData.area.description || loaderData.area.short },
+        { property: "og:description", content: description },
         { property: "og:url", content: fullUrl },
         { property: "og:image", content: imageUrl },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
-        { name: "twitter:description", content: loaderData.area.short },
+        { name: "twitter:description", content: description },
         { name: "twitter:image", content: imageUrl },
       ],
       links: [{ rel: "canonical", href: fullUrl }],
@@ -41,17 +42,60 @@ export const Route = createFileRoute("/work/$slug")({
           type: "application/ld+json",
           children: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: loaderData.area.title,
-            description: loaderData.area.description || loaderData.area.short,
-            provider: {
-              "@id": "https://trinetrafoundation.in/#organization",
-            },
-            areaServed: {
-              "@type": "AdministrativeArea",
-              name: "Bihar, India",
-            },
-            url: fullUrl,
+            "@graph": [
+              {
+                "@type": "Service",
+                "@id": `${fullUrl}#service`,
+                name: `${loaderData.area.title} Welfare Programme`,
+                description: loaderData.area.description || loaderData.area.short,
+                provider: {
+                  "@id": "https://trinetrafoundation.in/#organization",
+                },
+                areaServed: [
+                  {
+                    "@type": "City",
+                    name: "Forbesganj",
+                  },
+                  {
+                    "@type": "AdministrativeArea",
+                    name: "Araria",
+                  },
+                  {
+                    "@type": "State",
+                    name: "Bihar",
+                  },
+                  {
+                    "@type": "Country",
+                    name: "India",
+                  },
+                ],
+                url: fullUrl,
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": `${fullUrl}#breadcrumb`,
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://trinetrafoundation.in/",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Our Work",
+                    item: "https://trinetrafoundation.in/work",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: loaderData.area.title,
+                    item: fullUrl,
+                  },
+                ],
+              },
+            ],
           }),
         },
       ],

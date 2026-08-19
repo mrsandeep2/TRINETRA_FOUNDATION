@@ -6,24 +6,25 @@ import { images, org, values, workAreas } from "@/lib/site";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Trinetra Foundation | Mission, Leadership & Values" },
+      { title: "About Us — Trinetra Foundation | Section 8 NGO Forbesganj, Araria, Bihar" },
       {
         name: "description",
         content:
-          "Learn about Trinetra Foundation, a registered Section 8 NGO founded by Er. Abhishek Kumar Singh & Er. Abhinash Sahu in Forbesganj, Bihar working for education, health, and welfare.",
+          "Learn about Trinetra Foundation, a registered Section 8 NGO founded by Er. Abhishek Kumar Singh & Er. Abhinash Sahu in Forbesganj, Araria, Bihar dedicated to grassroots welfare, education, healthcare, and relief.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "About Us — Trinetra Foundation | Leadership & Governance" },
+      { property: "og:title", content: "About Us — Trinetra Foundation | Section 8 NGO Forbesganj, Bihar" },
       {
         property: "og:description",
-        content: "Our mission, vision, values, leadership, and governance as a registered Section 8 non-profit in Bihar.",
+        content: "Our mission, vision, values, leadership, and governance as a registered Section 8 non-profit in Forbesganj, Araria, Bihar.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/about" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "About Us — Trinetra Foundation" },
-      { name: "twitter:description", content: "Our mission, vision, values and governance in Forbesganj, Bihar." },
+      { name: "twitter:title", content: "About Us — Trinetra Foundation (Forbesganj, Bihar)" },
+      { name: "twitter:description", content: "Our mission, vision, leadership and governance in Forbesganj, Araria, Bihar." },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/about" }],
     scripts: [
@@ -31,12 +32,41 @@ export const Route = createFileRoute("/about")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "AboutPage",
-          name: "About Trinetra Foundation",
-          url: "https://trinetrafoundation.in/about",
-          mainEntity: {
-            "@id": "https://trinetrafoundation.in/#organization",
-          },
+          "@graph": [
+            {
+              "@type": "AboutPage",
+              "@id": "https://trinetrafoundation.in/about#webpage",
+              name: "About Trinetra Foundation",
+              description:
+                "Mission, leadership, vision, and Section 8 governance of Trinetra Foundation in Forbesganj, Araria, Bihar.",
+              url: "https://trinetrafoundation.in/about",
+              isPartOf: {
+                "@id": "https://trinetrafoundation.in/#website",
+              },
+              mainEntity: {
+                "@id": "https://trinetrafoundation.in/#organization",
+              },
+              inLanguage: "en-IN",
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://trinetrafoundation.in/about#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://trinetrafoundation.in/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "About Us",
+                  item: "https://trinetrafoundation.in/about",
+                },
+              ],
+            },
+          ],
         }),
       },
     ],

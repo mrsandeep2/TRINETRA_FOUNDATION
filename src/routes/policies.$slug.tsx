@@ -45,19 +45,66 @@ export const Route = createFileRoute("/policies/$slug")({
     if (!loaderData) {
       return { meta: [{ title: "Policy not found — Trinetra Foundation" }, { name: "robots", content: "noindex" }] };
     }
-    const title = `${loaderData.policy.title} — Trinetra Foundation`;
+    const title = `${loaderData.policy.title} — Trinetra Foundation | Registered Section 8 NGO Bihar`;
+    const fullUrl = `https://trinetrafoundation.in/policies/${params.slug}`;
     return {
       meta: [
         { title },
-        { name: "description", content: `${loaderData.policy.title} of Trinetra Foundation.` },
+        { name: "description", content: `Official ${loaderData.policy.title} of Trinetra Foundation (Section 8 NGO), Forbesganj, Araria, Bihar.` },
         { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
         { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
         { property: "og:title", content: title },
-        { property: "og:description", content: `${loaderData.policy.title} of Trinetra Foundation.` },
-        { property: "og:url", content: `https://trinetrafoundation.in/policies/${params.slug}` },
+        { property: "og:description", content: `${loaderData.policy.title} of Trinetra Foundation in Forbesganj, Bihar.` },
+        { property: "og:url", content: fullUrl },
         { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: `Official ${loaderData.policy.title} of Trinetra Foundation, Forbesganj, Bihar.` },
+        { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       ],
-      links: [{ rel: "canonical", href: `https://trinetrafoundation.in/policies/${params.slug}` }],
+      links: [{ rel: "canonical", href: fullUrl }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "@id": `${fullUrl}#webpage`,
+                name: `${loaderData.policy.title} — Trinetra Foundation`,
+                description: `Official ${loaderData.policy.title} document of Trinetra Foundation in Forbesganj, Araria, Bihar.`,
+                url: fullUrl,
+                isPartOf: {
+                  "@id": "https://trinetrafoundation.in/#website",
+                },
+                publisher: {
+                  "@id": "https://trinetrafoundation.in/#organization",
+                },
+                inLanguage: "en-IN",
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": `${fullUrl}#breadcrumb`,
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://trinetrafoundation.in/",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: loaderData.policy.title,
+                    item: fullUrl,
+                  },
+                ],
+              },
+            ],
+          }),
+        },
+      ],
     };
   },
   notFoundComponent: () => (

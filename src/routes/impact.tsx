@@ -22,24 +22,25 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/impact")({
   head: () => ({
     meta: [
-      { title: "Impact & Ground Telemetry — Trinetra Foundation | Verified Bihar Data" },
+      { title: "Impact & Ground Telemetry Bihar — Trinetra Foundation | Forbesganj, Araria Data" },
       {
         name: "description",
         content:
-          "Live impact metrics, audited beneficiary numbers, and real-time field reports across healthcare, food distribution, and education in Forbesganj & Araria.",
+          "Live impact metrics, audited beneficiary numbers, and real-time field reports across healthcare, food distribution, and education in Forbesganj & Araria district, Bihar.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "Impact & Ground Telemetry — Trinetra Foundation" },
+      { property: "og:title", content: "Impact & Ground Telemetry Bihar — Trinetra Foundation" },
       {
         property: "og:description",
-        content: "Transparent reporting and live telemetry tracking 12 welfare programmes in Bihar.",
+        content: "Transparent reporting and live telemetry tracking 12 welfare programmes in Forbesganj, Araria, Bihar.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/impact" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Impact & Accountability — Trinetra Foundation" },
-      { name: "twitter:description", content: "Audited numbers and ground impact data from Forbesganj, Bihar." },
+      { name: "twitter:title", content: "Impact & Accountability — Trinetra Foundation (Bihar)" },
+      { name: "twitter:description", content: "Audited numbers and ground impact data from Forbesganj, Araria, Bihar." },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/impact" }],
     scripts: [
@@ -47,12 +48,41 @@ export const Route = createFileRoute("/impact")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          name: "Impact & Accountability Metrics",
-          url: "https://trinetrafoundation.in/impact",
-          publisher: {
-            "@id": "https://trinetrafoundation.in/#organization",
-          },
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://trinetrafoundation.in/impact#webpage",
+              name: "Impact & Ground Telemetry Bihar",
+              description:
+                "Verified impact metrics and live telemetry tracking education, food security, and health camps in Forbesganj, Araria, Bihar.",
+              url: "https://trinetrafoundation.in/impact",
+              isPartOf: {
+                "@id": "https://trinetrafoundation.in/#website",
+              },
+              publisher: {
+                "@id": "https://trinetrafoundation.in/#organization",
+              },
+              inLanguage: "en-IN",
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://trinetrafoundation.in/impact#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://trinetrafoundation.in/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Impact & Ground Telemetry",
+                  item: "https://trinetrafoundation.in/impact",
+                },
+              ],
+            },
+          ],
         }),
       },
     ],

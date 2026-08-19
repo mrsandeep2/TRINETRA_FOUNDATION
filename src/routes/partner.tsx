@@ -8,24 +8,25 @@ import { partnershipTypes } from "@/lib/site";
 export const Route = createFileRoute("/partner")({
   head: () => ({
     meta: [
-      { title: "CSR & Institutional Partnerships — Trinetra Foundation | Bihar" },
+      { title: "CSR & Institutional Partnerships in Bihar — Trinetra Foundation | Forbesganj" },
       {
         name: "description",
         content:
-          "Partner with Trinetra Foundation for Corporate Social Responsibility (CSR) projects, academic collaborations, healthcare partnerships, and community interventions in Bihar.",
+          "Partner with Trinetra Foundation for Corporate Social Responsibility (CSR) projects, academic collaborations, healthcare partnerships, and community interventions in Forbesganj, Araria, Bihar.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "CSR & Institutional Partnerships — Trinetra Foundation" },
+      { property: "og:title", content: "CSR & Institutional Partnerships in Bihar — Trinetra Foundation" },
       {
         property: "og:description",
-        content: "Collaborate on high-impact CSR education, health, and environmental programmes in Bihar.",
+        content: "Collaborate on high-impact CSR education, health, and environmental programmes in Forbesganj, Araria, Bihar.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/partner" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Partner With Trinetra Foundation" },
-      { name: "twitter:description", content: "CSR and institutional partnerships for sustainable development in Bihar." },
+      { name: "twitter:title", content: "CSR Partnerships — Trinetra Foundation (Bihar)" },
+      { name: "twitter:description", content: "CSR and institutional partnerships for sustainable development in Forbesganj, Araria, Bihar." },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/partner" }],
     scripts: [
@@ -33,12 +34,41 @@ export const Route = createFileRoute("/partner")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          name: "CSR & Institutional Partnerships",
-          url: "https://trinetrafoundation.in/partner",
-          publisher: {
-            "@id": "https://trinetrafoundation.in/#organization",
-          },
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://trinetrafoundation.in/partner#webpage",
+              name: "CSR & Institutional Partnerships in Bihar",
+              description:
+                "CSR partnership and institutional collaboration opportunities for sustainable community development in Forbesganj, Araria, Bihar.",
+              url: "https://trinetrafoundation.in/partner",
+              isPartOf: {
+                "@id": "https://trinetrafoundation.in/#website",
+              },
+              publisher: {
+                "@id": "https://trinetrafoundation.in/#organization",
+              },
+              inLanguage: "en-IN",
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://trinetrafoundation.in/partner#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://trinetrafoundation.in/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "CSR & Partnerships",
+                  item: "https://trinetrafoundation.in/partner",
+                },
+              ],
+            },
+          ],
         }),
       },
     ],

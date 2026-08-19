@@ -8,24 +8,25 @@ import { volunteerInterests } from "@/lib/site";
 export const Route = createFileRoute("/volunteer")({
   head: () => ({
     meta: [
-      { title: "Volunteer With Us — Trinetra Foundation | Youth & Field Volunteers Bihar" },
+      { title: "Volunteer in Bihar & Forbesganj — Trinetra Foundation | Youth & Field Volunteers" },
       {
         name: "description",
         content:
-          "Join Trinetra Foundation as an on-ground or remote volunteer. Contribute your skills to food relief, teaching children, healthcare drives, tree plantations, and animal rescue in Bihar.",
+          "Join Trinetra Foundation as an on-ground or remote volunteer in Forbesganj, Araria, Bihar. Support food drives, child teaching, healthcare camps, tree plantations, and animal rescue.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "Volunteer With Us — Trinetra Foundation" },
+      { property: "og:title", content: "Volunteer With Us in Bihar — Trinetra Foundation" },
       {
         property: "og:description",
-        content: "Give your time, energy, and skills to grassroots empowerment in Forbesganj & Araria.",
+        content: "Give your time, energy, and skills to grassroots empowerment across Forbesganj, Araria, and Bihar.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/volunteer" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Volunteer With Trinetra Foundation" },
-      { name: "twitter:description", content: "Make a direct grassroots impact in Bihar." },
+      { name: "twitter:title", content: "Volunteer With Trinetra Foundation (Forbesganj, Bihar)" },
+      { name: "twitter:description", content: "Make a direct grassroots impact in Forbesganj & Araria district, Bihar." },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/volunteer" }],
     scripts: [
@@ -33,12 +34,41 @@ export const Route = createFileRoute("/volunteer")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          name: "Volunteer with Trinetra Foundation",
-          url: "https://trinetrafoundation.in/volunteer",
-          publisher: {
-            "@id": "https://trinetrafoundation.in/#organization",
-          },
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://trinetrafoundation.in/volunteer#webpage",
+              name: "Volunteer with Trinetra Foundation in Bihar",
+              description:
+                "Volunteer opportunities in education, healthcare, nutrition, afforestation, and animal care with Trinetra Foundation in Forbesganj, Araria, Bihar.",
+              url: "https://trinetrafoundation.in/volunteer",
+              isPartOf: {
+                "@id": "https://trinetrafoundation.in/#website",
+              },
+              publisher: {
+                "@id": "https://trinetrafoundation.in/#organization",
+              },
+              inLanguage: "en-IN",
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://trinetrafoundation.in/volunteer#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://trinetrafoundation.in/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Volunteer",
+                  item: "https://trinetrafoundation.in/volunteer",
+                },
+              ],
+            },
+          ],
         }),
       },
     ],

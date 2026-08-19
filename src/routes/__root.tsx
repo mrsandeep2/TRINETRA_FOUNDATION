@@ -122,15 +122,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "NGO",
+              "@type": ["NGO", "NonprofitOrganization"],
               "@id": "https://trinetrafoundation.in/#organization",
               name: "Trinetra Foundation",
-              alternateName: ["Trinetra NGO", "Trinetra Foundation Bihar"],
+              legalName: "Trinetra Foundation",
+              alternateName: [
+                "Trinetra NGO",
+                "Trinetra Foundation Bihar",
+                "Trinetra Foundation Forbesganj",
+                "Trinetra Foundation Araria",
+              ],
               url: "https://trinetrafoundation.in",
-              logo: "https://trinetrafoundation.in/trinetra-logo.png",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://trinetrafoundation.in/trinetra-logo.png",
+                width: "512",
+                height: "512",
+                caption: "Trinetra Foundation Official Logo",
+              },
               image: "https://trinetrafoundation.in/trinetra-logo.png",
               description:
-                "Trinetra Foundation is a Section 8 non-profit company registered under the Companies Act, 2013 in Forbesganj, Araria, Bihar, dedicated to human, animal, and environmental welfare.",
+                "Trinetra Foundation is a Section 8 registered non-profit company (CIN: U88900BR2026NPL084393) headquartered in Forbesganj, Araria, Bihar, dedicated to community welfare across education, nutrition, healthcare camps, animal care, and environmental sustainability.",
               taxID: "U88900BR2026NPL084393",
               nonprofitStatus: "Nonprofit501c3",
               foundingDate: "2026",
@@ -154,14 +166,46 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 postalCode: "854318",
                 addressCountry: "IN",
               },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 26.3015,
+                longitude: 87.2575,
+              },
+              areaServed: [
+                {
+                  "@type": "City",
+                  name: "Forbesganj",
+                },
+                {
+                  "@type": "AdministrativeArea",
+                  name: "Araria",
+                },
+                {
+                  "@type": "State",
+                  name: "Bihar",
+                },
+                {
+                  "@type": "Country",
+                  name: "India",
+                },
+              ],
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: "+91-7562891937",
-                contactType: "Customer Support",
+                contactType: "General Inquiries & Donor Support",
                 areaServed: "IN",
                 availableLanguage: ["en", "hi"],
                 email: "trinetrafoundationofficially@gmail.com",
               },
+              knowsAbout: [
+                "Education & Child Literacy in Bihar",
+                "Food Relief & Community Kitchens in Forbesganj",
+                "Free Healthcare Camps in Araria",
+                "Gaushala & Animal Welfare in Bihar",
+                "Afforestation & Environmental Action",
+                "Student Career Mentorship & Scholarships",
+                "Women Empowerment & Rural Livelihoods",
+              ],
               sameAs: [
                 "https://facebook.com/trinetrafoundation",
                 "https://instagram.com/trinetrafoundation",
@@ -174,6 +218,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@id": "https://trinetrafoundation.in/#website",
               url: "https://trinetrafoundation.in",
               name: "Trinetra Foundation",
+              description:
+                "Official website of Trinetra Foundation — Registered Section 8 NGO in Forbesganj, Araria, Bihar.",
               publisher: {
                 "@id": "https://trinetrafoundation.in/#organization",
               },

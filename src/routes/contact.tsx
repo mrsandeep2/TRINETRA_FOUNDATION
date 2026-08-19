@@ -9,24 +9,25 @@ import { org } from "@/lib/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us — Trinetra Foundation | Forbesganj, Araria, Bihar Office" },
+      { title: "Contact Trinetra Foundation Office — TV Centre, Block Road, Forbesganj, Araria, Bihar" },
       {
         name: "description",
         content:
-          "Reach Trinetra Foundation head office in Forbesganj, Araria, Bihar. Phone: +91 7562891937, Email: trinetrafoundationofficially@gmail.com. Inquire for donations, CSR, or volunteering.",
+          "Visit or contact Trinetra Foundation head office at TV Centre, Block Road, Forbesganj, Araria, Bihar 854318. Phone: +91 7562891937, Email: trinetrafoundationofficially@gmail.com.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "Contact Us — Trinetra Foundation | Bihar Office" },
+      { property: "og:title", content: "Contact Trinetra Foundation — Head Office Forbesganj, Bihar" },
       {
         property: "og:description",
-        content: "Get in touch with the Trinetra Foundation team for programmes, donations, or volunteering.",
+        content: "Get in touch with Trinetra Foundation in Forbesganj, Araria, Bihar for programmes, donations, CSR, or volunteering.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/contact" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Contact Trinetra Foundation" },
-      { name: "twitter:description", content: "Forbesganj, Araria, Bihar. Call +91 7562891937." },
+      { name: "twitter:title", content: "Contact Trinetra Foundation (Forbesganj, Araria, Bihar)" },
+      { name: "twitter:description", content: "TV Centre, Block Road, Forbesganj, Araria, Bihar 854318. Call +91 7562891937." },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/contact" }],
     scripts: [
@@ -34,12 +35,58 @@ export const Route = createFileRoute("/contact")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "ContactPage",
-          name: "Contact Trinetra Foundation",
-          url: "https://trinetrafoundation.in/contact",
-          mainEntity: {
-            "@id": "https://trinetrafoundation.in/#organization",
-          },
+          "@graph": [
+            {
+              "@type": "ContactPage",
+              "@id": "https://trinetrafoundation.in/contact#webpage",
+              name: "Contact Trinetra Foundation",
+              description:
+                "Official contact information and head office address of Trinetra Foundation in Forbesganj, Araria, Bihar.",
+              url: "https://trinetrafoundation.in/contact",
+              isPartOf: {
+                "@id": "https://trinetrafoundation.in/#website",
+              },
+              mainEntity: {
+                "@type": "NGO",
+                "@id": "https://trinetrafoundation.in/#organization",
+                name: "Trinetra Foundation",
+                telephone: "+91-7562891937",
+                email: "trinetrafoundationofficially@gmail.com",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "TV Centre, Block Road, Forbesganj",
+                  addressLocality: "Forbesganj",
+                  addressRegion: "Bihar",
+                  postalCode: "854318",
+                  addressCountry: "IN",
+                },
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: 26.3015,
+                  longitude: 87.2575,
+                },
+              },
+              inLanguage: "en-IN",
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://trinetrafoundation.in/contact#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://trinetrafoundation.in/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Contact Us",
+                  item: "https://trinetrafoundation.in/contact",
+                },
+              ],
+            },
+          ],
         }),
       },
     ],
@@ -73,32 +120,61 @@ function ContactPage() {
 
   return (
     <>
-      <PageHero eyebrow="Contact" title="Talk to us." intro="For programmes, volunteering, partnerships or press." />
+      <PageHero
+        eyebrow="Contact & Head Office"
+        title="Get in touch with our team."
+        intro="For programmes, on-ground volunteering, CSR partnerships, donations, or local assistance in Forbesganj & Araria, Bihar."
+      />
       <section className="relative z-10 -mt-16 pb-28">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="surface-lift grid gap-12 bg-card p-8 sm:p-14 lg:grid-cols-[1fr_1.2fr]">
             <div className="space-y-6 text-sm">
-              <div className="flex gap-3">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a href={`mailto:${org.email}`} className="break-all text-navy hover:text-primary">
-                  {org.email}
-                </a>
+              <div>
+                <h3 className="font-display text-lg font-bold text-navy">Trinetra Foundation Head Office</h3>
+                <p className="mt-1 text-xs text-muted-foreground">Section 8 Registered Non-Profit NGO</p>
               </div>
-              <div className="flex gap-3">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <a href={`tel:${org.phone}`} className="text-navy hover:text-primary">
-                  {org.phone}
-                </a>
-              </div>
+
               <div className="flex gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span className="text-muted-foreground">
+                <div className="text-muted-foreground">
+                  <span className="font-medium text-navy">Registered Office</span>
+                  <br />
                   {org.address}
                   <br />
                   {org.state}
-                </span>
+                  <br />
+                  <span className="text-xs text-muted-foreground/80">Landmark: Near TV Centre, Block Road</span>
+                </div>
               </div>
-              <p className="text-xs text-muted-foreground">CIN: {org.cin}</p>
+
+              <div className="flex gap-3">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div>
+                  <span className="font-medium text-navy">Phone / Helpline</span>
+                  <br />
+                  <a href={`tel:${org.phone}`} className="text-muted-foreground hover:text-primary transition-colors">
+                    +91 {org.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <div>
+                  <span className="font-medium text-navy">Official Email</span>
+                  <br />
+                  <a href={`mailto:${org.email}`} className="break-all text-muted-foreground hover:text-primary transition-colors">
+                    {org.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="rounded-2xl bg-secondary/20 p-4 text-xs text-muted-foreground space-y-1.5 border border-border/50">
+                <p className="font-semibold text-navy">Office Hours & Coverage:</p>
+                <p>Monday – Saturday: 9:00 AM – 6:00 PM IST</p>
+                <p>Ground Service: Forbesganj, Araria District, and neighboring communities in Bihar</p>
+                <p className="text-[11px] pt-1 border-t border-border/40 text-muted-foreground/70">CIN: {org.cin}</p>
+              </div>
             </div>
 
             <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">

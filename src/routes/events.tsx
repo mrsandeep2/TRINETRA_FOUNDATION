@@ -25,24 +25,25 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Upcoming Events & Medical Camps — Trinetra Foundation | Forbesganj, Bihar" },
+      { title: "Health Camps & Welfare Events in Forbesganj, Bihar — Trinetra Foundation" },
       {
         name: "description",
         content:
-          "Join or RSVP for upcoming healthcare camps, blood donation drives, tree plantations, and career counselling sessions organized by Trinetra Foundation across Bihar.",
+          "Join or RSVP for upcoming healthcare camps, blood donation drives, tree plantations, and career counselling sessions organized by Trinetra Foundation across Forbesganj, Araria, and Bihar.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "Upcoming Events & Community Camps — Trinetra Foundation" },
+      { property: "og:title", content: "Health Camps & Welfare Events in Forbesganj, Bihar — Trinetra Foundation" },
       {
         property: "og:description",
-        content: "Participate, volunteer or RSVP for upcoming grassroots community drives in Bihar.",
+        content: "Participate, volunteer or RSVP for upcoming grassroots community drives in Forbesganj, Araria, Bihar.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/events" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Events & On-Ground Camps — Trinetra Foundation" },
+      { name: "twitter:title", content: "Events & On-Ground Camps in Forbesganj, Bihar" },
       { name: "twitter:description", content: "Join free medical camps, student workshops and community drives in Bihar." },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/events" }],
     scripts: [
@@ -50,21 +51,48 @@ export const Route = createFileRoute("/events")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "EventSeries",
-          name: "Trinetra Foundation Community Camps & Drives",
-          url: "https://trinetrafoundation.in/events",
-          organizer: {
-            "@id": "https://trinetrafoundation.in/#organization",
-          },
-          location: {
-            "@type": "Place",
-            name: "Forbesganj & Araria District",
-            address: {
-              "@type": "PostalAddress",
-              addressRegion: "Bihar",
-              addressCountry: "IN",
+          "@graph": [
+            {
+              "@type": "EventSeries",
+              "@id": "https://trinetrafoundation.in/events#series",
+              name: "Trinetra Foundation Community Health Camps & Welfare Drives",
+              description:
+                "Community diagnostic health camps, youth counselling workshops, afforestation, and food distribution drives across Forbesganj and Araria, Bihar.",
+              url: "https://trinetrafoundation.in/events",
+              organizer: {
+                "@id": "https://trinetrafoundation.in/#organization",
+              },
+              location: {
+                "@type": "Place",
+                name: "Forbesganj & Araria District",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Forbesganj",
+                  addressRegion: "Bihar",
+                  postalCode: "854318",
+                  addressCountry: "IN",
+                },
+              },
             },
-          },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://trinetrafoundation.in/events#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://trinetrafoundation.in/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Events & Camps",
+                  item: "https://trinetrafoundation.in/events",
+                },
+              ],
+            },
+          ],
         }),
       },
     ],

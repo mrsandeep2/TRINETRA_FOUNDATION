@@ -24,24 +24,25 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/transparency")({
   head: () => ({
     meta: [
-      { title: "Transparency & Legal Disclosures — Trinetra Foundation | Section 8 NGO Bihar" },
+      { title: "Transparency, CIN & 80G Disclosures — Trinetra Foundation | NGO Forbesganj Bihar" },
       {
         name: "description",
         content:
-          "Public disclosures, Section 8 registration certificate, CIN U88900BR2026NPL084393, 80G tax exemption, 12A approvals, and financial audits for Trinetra Foundation.",
+          "Public disclosures, Section 8 registration certificate (CIN: U88900BR2026NPL084393), 80G tax exemption, 12A approvals, and audited filings for Trinetra Foundation in Forbesganj, Araria, Bihar.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "googlebot", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
-      { property: "og:title", content: "Transparency & Legal Governance — Trinetra Foundation" },
+      { property: "og:title", content: "Transparency & Legal Disclosures — Trinetra Foundation | Bihar" },
       {
         property: "og:description",
-        content: "Verified registration certificate, Section 8 compliance, 80G certificate, and audited filings.",
+        content: "Verified registration certificate, Section 8 compliance, 80G certificate, and audited filings in Forbesganj, Bihar.",
       },
       { property: "og:url", content: "https://trinetrafoundation.in/transparency" },
       { property: "og:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Legal Disclosures & Audits — Trinetra Foundation" },
-      { name: "twitter:description", content: "100% public accountability with verified government registrations." },
+      { name: "twitter:title", content: "Legal Disclosures & Audits — Trinetra Foundation (Bihar)" },
+      { name: "twitter:description", content: "100% public accountability with verified government registrations in Forbesganj, Bihar." },
+      { name: "twitter:image", content: "https://trinetrafoundation.in/trinetra-logo.png" },
     ],
     links: [{ rel: "canonical", href: "https://trinetrafoundation.in/transparency" }],
     scripts: [
@@ -49,12 +50,41 @@ export const Route = createFileRoute("/transparency")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "AboutPage",
-          name: "Trinetra Foundation Transparency & Legal Disclosures",
-          url: "https://trinetrafoundation.in/transparency",
-          mainEntity: {
-            "@id": "https://trinetrafoundation.in/#organization",
-          },
+          "@graph": [
+            {
+              "@type": "AboutPage",
+              "@id": "https://trinetrafoundation.in/transparency#webpage",
+              name: "Trinetra Foundation Transparency & Legal Disclosures",
+              description:
+                "Section 8 certificate of incorporation, CIN U88900BR2026NPL084393, 80G tax approvals, and financial governance disclosures of Trinetra Foundation in Forbesganj, Araria, Bihar.",
+              url: "https://trinetrafoundation.in/transparency",
+              isPartOf: {
+                "@id": "https://trinetrafoundation.in/#website",
+              },
+              mainEntity: {
+                "@id": "https://trinetrafoundation.in/#organization",
+              },
+              inLanguage: "en-IN",
+            },
+            {
+              "@type": "BreadcrumbList",
+              "@id": "https://trinetrafoundation.in/transparency#breadcrumb",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://trinetrafoundation.in/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Transparency & Governance",
+                  item: "https://trinetrafoundation.in/transparency",
+                },
+              ],
+            },
+          ],
         }),
       },
     ],
